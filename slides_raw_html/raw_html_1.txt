@@ -1,0 +1,2747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Ensemble for UAV-based Multispectral Defect Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #ffffff;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            overflow: hidden;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://sfile.chatglm.cn/images-ppt/d8de2a023a35.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            z-index: -1;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(16, 57, 123, 0.7);
+            z-index: -1;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 0 100px;
+            text-align: center;
+        }
+        .title {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+        .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 50px;
+            color: #e0e9f5;
+            max-width: 80%;
+        }
+        .authors {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #e0e9f5;
+        }
+        .conference {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #e0e9f5;
+        }
+        .date-location {
+            font-size: 18px;
+            font-weight: 400;
+            color: #e0e9f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="background"></div>
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 class="title">YOLO Ensemble for UAV-based Multispectral Defect Detection in Wind Turbine Components</h1>
+            <div class="authors">Serhii Svystun, Pavlo Radiuk, Oleksandr Melnychenko, Oleg Savenko, Anatoliy Sachenko</div>
+            <div class="conference">The 13th IEEE International Conference on Intelligent Data Acquisition and Advanced Computing Systems: Technology and Applications</div>
+            <div class="date-location">4-6 September, 2025, Gliwice, Poland</div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .abstract-box {
+            background-color: #f0f6ff;
+            border-left: 5px solid #10397b;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+        }
+        .abstract-text {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .key-points {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .point {
+            flex-basis: 30%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .point i {
+            font-size: 36px;
+            color: #10397b;
+            margin-bottom: 15px;
+        }
+        .point-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #10397b;
+        }
+        .point-desc {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Abstract</h1>
+        </div>
+        <div class="content">
+            <div class="abstract-box">
+                <p class="abstract-text">
+                    This research enhances defect detection accuracy in wind turbine components through an <span class="highlight">ensemble of YOLO-based deep learning models</span> that integrate visible and thermal channels from UAV inspections. Our approach combines a general-purpose YOLOv8 model with a specialized thermal model using a sophisticated bounding box fusion algorithm, achieving a <span class="highlight">mean Average Precision (mAP@.5) of 0.93</span> and an F1-score of 0.90, outperforming standalone YOLOv8.
+                </p>
+            </div>
+            <div class="key-points">
+                <div class="point">
+                    <i class="material-icons">flight</i>
+                    <div class="point-title">UAV Inspection</div>
+                    <div class="point-desc">Advanced sensors enable monitoring of wind turbine blades, towers, and critical components</div>
+                </div>
+                <div class="point">
+                    <i class="material-icons">layers</i>
+                    <div class="point-title">Multispectral Fusion</div>
+                    <div class="point-desc">Integration of RGB and thermal imagery for enhanced defect visibility</div>
+                </div>
+                <div class="point">
+                    <i class="material-icons">auto_awesome</i>
+                    <div class="point-title">YOLO Ensemble</div>
+                    <div class="point-desc">Sophisticated fusion algorithm improves detection of both visual and thermal defects</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px 70px;
+            display: flex;
+            gap: 40px;
+        }
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .right-column {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .challenge-box {
+            background-color: #f0f6ff;
+            border-left: 5px solid #10397b;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            margin-bottom: 25px;
+        }
+        .challenge-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .challenge-title i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .challenge-points {
+            list-style-type: none;
+        }
+        .challenge-point {
+            font-size: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .challenge-point i {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+        .image-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(16, 57, 123, 0.15);
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Introduction</h1>
+        </div>
+        <div class="content">
+            <div class="left-column">
+                <div class="challenge-box">
+                    <div class="challenge-title">
+                        <i class="material-icons">warning</i>
+                        Wind Turbine Inspection Challenges
+                    </div>
+                    <ul class="challenge-points">
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Minor defects can lead to <span class="highlight">substantial economic and safety risks</span></span>
+                        </li>
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Timely maintenance is critical for <span class="highlight">efficiency and longevity</span></span>
+                        </li>
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Complex geometries and remote locations complicate inspection</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-title">
+                        <i class="material-icons">flight</i>
+                        UAV-Based Inspection
+                    </div>
+                    <ul class="challenge-points">
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Equipped with <span class="highlight">high-resolution optical sensors</span> and thermal cameras</span>
+                        </li>
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Efficiently collect visual information from multiple angles</span>
+                        </li>
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Capture subtle or internal defects not visible in RGB images</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-title">
+                        <i class="material-icons">memory</i>
+                        Data Processing Challenges
+                    </div>
+                    <ul class="challenge-points">
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Large amounts of data require <span class="highlight">real-time processing</span></span>
+                        </li>
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Environmental conditions affect data quality</span>
+                        </li>
+                        <li class="challenge-point">
+                            <i class="material-icons">arrow_right</i>
+                            <span>Need for robust algorithms to analyze multispectral data</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="image-container">
+                    <img src="https://sfile.chatglm.cn/images-ppt/45d0f7c494eb.jpg" alt="Wind turbine blade thermal inspection comparison">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Related Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .timeline-container {
+            display: flex;
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+        .evolution-box {
+            flex: 1;
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 0 10px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .evolution-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .evolution-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .evolution-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .evolution-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .evolution-item i {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        .evolution-text {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+        .current-state {
+            margin-top: 30px;
+            background-color: #e0ecff;
+            border-left: 5px solid #10397b;
+            padding: 20px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+        }
+        .current-state-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .current-state-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .current-state-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .state-item {
+            flex-basis: 30%;
+            display: flex;
+            align-items: flex-start;
+        }
+        .state-item i {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        .state-text {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Related Work</h1>
+        </div>
+        <div class="content">
+            <div class="timeline-container">
+                <div class="evolution-box">
+                    <div class="evolution-title">
+                        <i class="material-icons">history</i>
+                        Evolution of Sensing
+                    </div>
+                    <div class="evolution-content">
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Early methods: <span class="highlight">Conventional RGB sensors</span> with basic machine learning
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Modern UAVs: Integration of <span class="highlight">thermal (IR) cameras</span> to detect temperature anomalies
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Advanced systems: <span class="highlight">Multispectral sensors</span> for identifying early-stage corrosion
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Infrastructure: Adoption of <span class="highlight">5G networks</span> and edge computing architectures
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="evolution-box">
+                    <div class="evolution-title">
+                        <i class="material-icons">psychology</i>
+                        Evolution of Algorithms
+                    </div>
+                    <div class="evolution-content">
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Early approaches: <span class="highlight">Classifiers with hand-crafted features</span>
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Modern methods: <span class="highlight">Deep learning models</span> that automatically learn hierarchical defect patterns
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Real-time detectors: <span class="highlight">YOLO</span> offering speed advantages
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                High-precision detectors: <span class="highlight">Faster R-CNN, Cascade R-CNN</span> providing higher accuracy
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="evolution-box">
+                    <div class="evolution-title">
+                        <i class="material-icons">merge_type</i>
+                        Evolution of Fusion
+                    </div>
+                    <div class="evolution-content">
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Basic techniques: <span class="highlight">Simple averaging</span> of RGB and IR data
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Advanced approaches: <span class="highlight">CNN-based fusion</span> learning optimal strategies
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Ensemble methods: <span class="highlight">Combining fast detectors</span> with precise models
+                            </div>
+                        </div>
+                        <div class="evolution-item">
+                            <i class="material-icons">arrow_right</i>
+                            <div class="evolution-text">
+                                Research gap: Limited focus on <span class="highlight">ensemble learning</span> with multispectral data
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="current-state">
+                <div class="current-state-title">
+                    <i class="material-icons">insights</i>
+                    Current State-of-the-Art
+                </div>
+                <div class="current-state-content">
+                    <div class="state-item">
+                        <i class="material-icons">check_circle</i>
+                        <div class="state-text">
+                            <span class="highlight">Multispectral data</span> with advanced CNN architectures is key to reliable defect detection
+                        </div>
+                    </div>
+                    <div class="state-item">
+                        <i class="material-icons">check_circle</i>
+                        <div class="state-text">
+                            <span class="highlight">Ensemble techniques</span> balance speed and accuracy for real-time inspection
+                        </div>
+                    </div>
+                    <div class="state-item">
+                        <i class="material-icons">check_circle</i>
+                        <div class="state-text">
+                            <span class="highlight">RGB-IR fusion</span> effectively reduces missed defects in challenging conditions
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology Overview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .workflow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .workflow-image {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(16, 57, 123, 0.15);
+            margin-bottom: 20px;
+        }
+        .workflow-caption {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+        .stages-container {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .stage-box {
+            flex-basis: 23%;
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .stage-icon {
+            font-size: 40px;
+            color: #10397b;
+            margin-bottom: 15px;
+        }
+        .stage-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 12px;
+        }
+        .stage-desc {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Methodology Overview</h1>
+        </div>
+        <div class="content">
+            <div class="workflow-container">
+                <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_1_flowchart.drawio.png" alt="General workflow of the proposed ensemble approach" class="workflow-image">
+                <div class="workflow-caption">Figure 1: General workflow of our proposed ensemble approach</div>
+            </div>
+            <div class="stages-container">
+                <div class="stage-box">
+                    <i class="material-icons stage-icon">flight_takeoff</i>
+                    <div class="stage-title">Data Acquisition</div>
+                    <div class="stage-desc">
+                        UAVs capture <span class="highlight">RGB</span> and <span class="highlight">thermal IR</span> imagery of wind turbine components
+                    </div>
+                </div>
+                <div class="stage-box">
+                    <i class="material-icons stage-icon">merge_type</i>
+                    <div class="stage-title">Multispectral Fusion</div>
+                    <div class="stage-desc">
+                        Precise alignment and fusion of RGB and IR data using <span class="highlight">homography-based registration</span>
+                    </div>
+                </div>
+                <div class="stage-box">
+                    <i class="material-icons stage-icon">model_training</i>
+                    <div class="stage-title">Parallel Model Training</div>
+                    <div class="stage-desc">
+                        Training <span class="highlight">baseline YOLOv8</span> and <span class="highlight">specialized thermal model</span> on fused data
+                    </div>
+                </div>
+                <div class="stage-box">
+                    <i class="material-icons stage-icon">integration_instructions</i>
+                    <div class="stage-title">Ensemble Fusion</div>
+                    <div class="stage-desc">
+                        Combining predictions using <span class="highlight">weighted bounding-box fusion</span> algorithm
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Collection and Fusion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .channels-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .channel-box {
+            flex-basis: 48%;
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .channel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .channel-icon {
+            font-size: 36px;
+            color: #10397b;
+            margin-right: 15px;
+        }
+        .channel-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+        }
+        .channel-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-icon {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        .feature-text {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .fusion-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .fusion-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .fusion-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .fusion-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-grow: 1;
+        }
+        .fusion-left {
+            flex-basis: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .fusion-right {
+            flex-basis: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .fusion-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #10397b;
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-text {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .formula-box {
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .formula-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .formula {
+            font-size: 22px;
+            font-weight: 600;
+            color: #10397b;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .formula-desc {
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Data Collection and Fusion</h1>
+        </div>
+        <div class="content">
+            <div class="channels-container">
+                <div class="channel-box">
+                    <div class="channel-header">
+                        <i class="material-icons channel-icon">visibility</i>
+                        <div class="channel-title">RGB Channel</div>
+                    </div>
+                    <div class="channel-content">
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">hd</i>
+                            <div class="feature-text">
+                                <span class="highlight">High-resolution</span> optical images (4K or 6K)
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">texture</i>
+                            <div class="feature-text">
+                                Detailed textural and color information
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">broken_image</i>
+                            <div class="feature-text">
+                                Essential for identifying <span class="highlight">surface cracks</span> and corrosion
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-box">
+                    <div class="channel-header">
+                        <i class="material-icons channel-icon">whatshot</i>
+                        <div class="channel-title">IR Channel</div>
+                    </div>
+                    <div class="channel-content">
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">thermostat</i>
+                            <div class="feature-text">
+                                Captured using <span class="highlight">co-located infrared camera</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">local_fire_department</i>
+                            <div class="feature-text">
+                                Detects temperature-related anomalies
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">warning</i>
+                            <div class="feature-text">
+                                Reveals <span class="highlight">subsurface defects</span> invisible in RGB spectrum
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fusion-section">
+                <div class="fusion-title">
+                    <i class="material-icons">merge_type</i>
+                    Multispectral Image Fusion
+                </div>
+                <div class="fusion-content">
+                    <div class="fusion-left">
+                        <div class="fusion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">
+                                <span class="highlight">Precise pixel-wise alignment</span> of IR channel to corresponding RGB image
+                            </div>
+                        </div>
+                        <div class="fusion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">
+                                <span class="highlight">Homography-based registration</span> technique accounts for focal length differences and spatial offsets
+                            </div>
+                        </div>
+                        <div class="fusion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                Fusion function ranges from simple weighted sum to sophisticated deep learning models (e.g., IFCNN)
+                            </div>
+                        </div>
+                        <div class="fusion-step">
+                            <div class="step-number">4</div>
+                            <div class="step-text">
+                                Creates enriched image representations that enhance visibility of diverse defect types
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fusion-right">
+                        <div class="formula-box">
+                            <div class="formula-title">Fusion Function</div>
+                            <div class="formula">
+                                Fusion(x, y) = f(RGB(g<sub>x</sub>(x, y), g<sub>y</sub>(x, y)), IR(h<sub>x</sub>(x, y), h<sub>y</sub>(x, y)))
+                            </div>
+                            <div class="formula-desc">
+                                Where g<sub>x</sub>, g<sub>y</sub> and h<sub>x</sub>, h<sub>y</sub> represent geometric transformations applied to RGB and IR images, and f(·, ·) is the fusion function
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Models</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .models-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .model-box {
+            flex-basis: 48%;
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .model-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .model-icon {
+            font-size: 36px;
+            color: #10397b;
+            margin-right: 15px;
+        }
+        .model-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+        }
+        .model-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-icon {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        .feature-text {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .defects-section {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .defects-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .defects-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .defects-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-grow: 1;
+        }
+        .defect-box {
+            flex: 1;
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .defect-icon {
+            font-size: 40px;
+            color: #10397b;
+            margin-bottom: 15px;
+        }
+        .defect-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 12px;
+        }
+        .defect-desc {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">YOLO Models</h1>
+        </div>
+        <div class="content">
+            <div class="models-container">
+                <div class="model-box">
+                    <div class="model-header">
+                        <i class="material-icons model-icon">speed</i>
+                        <div class="model-title">YOLOv8 Baseline Model</div>
+                    </div>
+                    <div class="model-content">
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">bolt</i>
+                            <div class="feature-text">
+                                <span class="highlight">High-speed inference</span> with state-of-the-art accuracy
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">balance</i>
+                            <div class="feature-text">
+                                Ideal balance for <span class="highlight">near real-time</span> UAV inspection
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">layers</i>
+                            <div class="feature-text">
+                                Trained on both RGB and fused multispectral images
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="model-box">
+                    <div class="model-header">
+                        <i class="material-icons model-icon">whatshot</i>
+                        <div class="model-title">Specialized Thermal Model (Mt)</div>
+                    </div>
+                    <div class="model-content">
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">thermostat</i>
+                            <div class="feature-text">
+                                Exclusively trained on <span class="highlight">IR-heavy data</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">sensitivity</i>
+                            <div class="feature-text">
+                                Heightened sensitivity to subtle thermal gradients
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="material-icons feature-icon">visibility</i>
+                            <div class="feature-text">
+                                Detects defects often overlooked by general-purpose models
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="defects-section">
+                <div class="defects-title">
+                    <i class="material-icons">report_problem</i>
+                    Defect Classes
+                </div>
+                <div class="defects-container">
+                    <div class="defect-box">
+                        <i class="material-icons defect-icon">broken_image</i>
+                        <div class="defect-title">Cracks (C1)</div>
+                        <div class="defect-desc">
+                            Structural fractures compromising aerodynamic integrity
+                            <br><br>
+                            <span class="highlight">Detection:</span> Visible surface fractures in blades, towers
+                        </div>
+                    </div>
+                    <div class="defect-box">
+                        <i class="material-icons defect-icon">blur_on</i>
+                        <div class="defect-title">Corrosion (C2)</div>
+                        <div class="defect-desc">
+                            Oxidative degradation on metallic surfaces
+                            <br><br>
+                            <span class="highlight">Detection:</span> Primarily on tower and blade root connections
+                        </div>
+                    </div>
+                    <div class="defect-box">
+                        <i class="material-icons defect-icon">local_fire_department</i>
+                        <div class="defect-title">Overheating (C3)</div>
+                        <div class="defect-desc">
+                            Temperature anomalies indicating mechanical or electrical faults
+                            <br><br>
+                            <span class="highlight">Detection:</span> Primarily via IR channel in nacelle components
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensemble Fusion Algorithm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .algorithm-container {
+            display: flex;
+            flex-grow: 1;
+            gap: 30px;
+        }
+        .algorithm-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .algorithm-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .algorithm-box {
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .algorithm-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .algorithm-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .algorithm-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .algorithm-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #10397b;
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-text {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .formula-box {
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .formula-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .formula {
+            font-size: 22px;
+            font-weight: 600;
+            color: #10397b;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .formula-desc {
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+        .key-points {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .key-point {
+            flex-basis: 48%;
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .key-icon {
+            font-size: 36px;
+            color: #10397b;
+            margin-bottom: 15px;
+        }
+        .key-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 10px;
+        }
+        .key-desc {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Ensemble Fusion Algorithm</h1>
+        </div>
+        <div class="content">
+            <div class="algorithm-container">
+                <div class="algorithm-left">
+                    <div class="algorithm-box">
+                        <div class="algorithm-title">
+                            <i class="material-icons">merge_type</i>
+                            Bounding Box Fusion
+                        </div>
+                        <div class="algorithm-content">
+                            <div class="algorithm-step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">
+                                    Identify <span class="highlight">overlapping bounding boxes</span> of the same class from both models
+                                </div>
+                            </div>
+                            <div class="algorithm-step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">
+                                    Calculate <span class="highlight">weighted averages</span> of confidence scores and box parameters
+                                </div>
+                            </div>
+                            <div class="algorithm-step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">
+                                    Create fused detection with combined information
+                                </div>
+                            </div>
+                            <div class="algorithm-step">
+                                <div class="step-number">4</div>
+                                <div class="step-text">
+                                    Preserve unique findings from each model
+                                </div>
+                            </div>
+                            <div class="algorithm-step">
+                                <div class="step-number">5</div>
+                                <div class="step-text">
+                                    Apply <span class="highlight">Non-Maximum Suppression</span> to remove redundant detections
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="algorithm-right">
+                    <div class="formula-box">
+                        <div class="formula-title">Weighted Average Formulas</div>
+                        <div class="formula">
+                            p<sub>ensemble</sub> = γp<sub>Mt,j</sub> + (1−γ)p<sub>y,i</sub>
+                        </div>
+                        <div class="formula">
+                            x<sub>ensemble</sub> = γx<sub>Mt,j</sub> + (1−γ)x<sub>y,i</sub>
+                        </div>
+                        <div class="formula">
+                            y<sub>ensemble</sub> = γy<sub>Mt,j</sub> + (1−γ)y<sub>y,i</sub>
+                        </div>
+                        <div class="formula">
+                            W<sub>ensemble</sub> = γW<sub>Mt,j</sub> + (1−γ)W<sub>y,i</sub>
+                        </div>
+                        <div class="formula">
+                            H<sub>ensemble</sub> = γH<sub>Mt,j</sub> + (1−γ)H<sub>y,i</sub>
+                        </div>
+                        <div class="formula-desc">
+                            Where γ ∈ [0, 1] controls the contribution of each model
+                        </div>
+                    </div>
+                    <div class="key-points">
+                        <div class="key-point">
+                            <i class="material-icons key-icon">tune</i>
+                            <div class="key-title">Weighting Factor</div>
+                            <div class="key-desc">
+                                γ = 0.5 assigns equal importance to both models
+                            </div>
+                        </div>
+                        <div class="key-point">
+                            <i class="material-icons key-icon">filter_center_focus</i>
+                            <div class="key-title">NMS Threshold</div>
+                            <div class="key-desc">
+                                Removes boxes with IoU above predefined threshold τ<sub>nms</sub>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Performance Comparison</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .table-container {
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            margin-bottom: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .table-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .table-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #d0e0ff;
+        }
+        th {
+            background-color: #10397b;
+            color: white;
+            font-weight: 600;
+        }
+        th:first-child {
+            text-align: left;
+            width: 20%;
+        }
+        td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #e0ecff;
+        }
+        tr:hover {
+            background-color: #d0e0ff;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 700;
+        }
+        .key-findings {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: auto;
+        }
+        .finding-box {
+            flex: 1;
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .finding-icon {
+            font-size: 36px;
+            color: #10397b;
+            margin-bottom: 15px;
+        }
+        .finding-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 10px;
+        }
+        .finding-desc {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .improvement {
+            color: #2e7d32;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Results - Performance Comparison</h1>
+        </div>
+        <div class="content">
+            <div class="table-container">
+                <div class="table-title">
+                    <i class="material-icons">analytics</i>
+                    Single YOLOv8 vs. Ensemble Performance
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Defect Class</th>
+                                <th colspan="2">mAP@.5</th>
+                                <th colspan="2">mAP@.5:.95</th>
+                                <th colspan="2">Precision</th>
+                                <th colspan="2">F1-Score</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>YOLOv8</th>
+                                <th>Ensemble</th>
+                                <th>YOLOv8</th>
+                                <th>Ensemble</th>
+                                <th>YOLOv8</th>
+                                <th>Ensemble</th>
+                                <th>YOLOv8</th>
+                                <th>Ensemble</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cracks (C1)</td>
+                                <td>0.93</td>
+                                <td class="highlight">0.95</td>
+                                <td>0.78</td>
+                                <td class="highlight">0.81</td>
+                                <td>0.91</td>
+                                <td class="highlight">0.93</td>
+                                <td>0.90</td>
+                                <td class="highlight">0.92</td>
+                            </tr>
+                            <tr>
+                                <td>Corrosion (C2)</td>
+                                <td>0.90</td>
+                                <td class="highlight">0.92</td>
+                                <td>0.75</td>
+                                <td class="highlight">0.78</td>
+                                <td>0.88</td>
+                                <td class="highlight">0.90</td>
+                                <td>0.87</td>
+                                <td class="highlight">0.89</td>
+                            </tr>
+                            <tr>
+                                <td>Overheating (C3)</td>
+                                <td>0.89</td>
+                                <td class="highlight">0.92</td>
+                                <td>0.74</td>
+                                <td class="highlight">0.77</td>
+                                <td>0.87</td>
+                                <td class="highlight">0.90</td>
+                                <td>0.86</td>
+                                <td class="highlight">0.89</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mean</strong></td>
+                                <td>0.91</td>
+                                <td class="highlight">0.93</td>
+                                <td>0.76</td>
+                                <td class="highlight">0.79</td>
+                                <td>0.89</td>
+                                <td class="highlight">0.91</td>
+                                <td>0.88</td>
+                                <td class="highlight">0.90</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="key-findings">
+                <div class="finding-box">
+                    <i class="material-icons finding-icon">trending_up</i>
+                    <div class="finding-title">Overall Improvement</div>
+                    <div class="finding-desc">
+                        Ensemble achieves <span class="improvement">+2.2%</span> mAP@.5 and <span class="improvement">+3.9%</span> mAP@.5:.95 over single model
+                    </div>
+                </div>
+                <div class="finding-box">
+                    <i class="material-icons finding-icon">whatshot</i>
+                    <div class="finding-title">Thermal Defects</div>
+                    <div class="finding-desc">
+                        Overheating detection shows <span class="improvement">+3.4%</span> improvement in mAP@.5 with specialized model
+                    </div>
+                </div>
+                <div class="finding-box">
+                    <i class="material-icons finding-icon">auto_awesome</i>
+                    <div class="finding-title">Balanced Performance</div>
+                    <div class="finding-desc">
+                        Ensemble maintains high precision while reducing false negatives across all defect types
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - State-of-the-Art Comparison</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .table-container {
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            margin-bottom: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .table-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .table-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 20px;
+            border: 1px solid #d0e0ff;
+        }
+        th {
+            background-color: #10397b;
+            color: white;
+            font-weight: 600;
+        }
+        th:first-child {
+            text-align: left;
+            width: 40%;
+        }
+        td:first-child {
+            text-align: left;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #e0ecff;
+        }
+        tr:hover {
+            background-color: #d0e0ff;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 700;
+        }
+        .key-findings {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: auto;
+        }
+        .finding-box {
+            flex: 1;
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .finding-icon {
+            font-size: 36px;
+            color: #10397b;
+            margin-bottom: 15px;
+        }
+        .finding-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 10px;
+        }
+        .finding-desc {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .improvement {
+            color: #2e7d32;
+            font-weight: 700;
+        }
+        .last-row {
+            background-color: #d0e0ff;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Results - State-of-the-Art Comparison</h1>
+        </div>
+        <div class="content">
+            <div class="table-container">
+                <div class="table-title">
+                    <i class="material-icons">leaderboard</i>
+                    Performance Comparison with Established Models
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>mAP@.5</th>
+                                <th>mAP@.5:.95</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Faster R-CNN</td>
+                                <td>0.89</td>
+                                <td>0.74</td>
+                            </tr>
+                            <tr>
+                                <td>Cascade R-CNN</td>
+                                <td>0.90</td>
+                                <td>0.75</td>
+                            </tr>
+                            <tr>
+                                <td>EfficientDet-D1</td>
+                                <td>0.91</td>
+                                <td>0.76</td>
+                            </tr>
+                            <tr>
+                                <td>YOLOv8 (Single Model)</td>
+                                <td>0.91</td>
+                                <td>0.76</td>
+                            </tr>
+                            <tr class="last-row">
+                                <td>Our Ensemble (YOLOv8 + Mt)</td>
+                                <td class="highlight">0.93</td>
+                                <td class="highlight">0.79</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="key-findings">
+                <div class="finding-box">
+                    <i class="material-icons finding-icon">emoji_events</i>
+                    <div class="finding-title">Top Performance</div>
+                    <div class="finding-desc">
+                        Our ensemble achieves <span class="improvement">highest mAP@.5 (0.93)</span> and <span class="improvement">mAP@.5:.95 (0.79)</span> among all models
+                    </div>
+                </div>
+                <div class="finding-box">
+                    <i class="material-icons finding-icon">speed</i>
+                    <div class="finding-title">Single-Stage Advantage</div>
+                    <div class="finding-desc">
+                        Single-stage detectors (YOLOv8, EfficientDet) outperform two-stage approaches in speed-accuracy balance
+                    </div>
+                </div>
+                <div class="finding-box">
+                    <i class="material-icons finding-icon">insights</i>
+                    <div class="finding-title">Ensemble Benefits</div>
+                    <div class="finding-desc">
+                        Fusion of YOLOv8 with specialized thermal model provides <span class="improvement">+3.9%</span> improvement in stricter mAP@.5:.95 metric
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Qualitative Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .intro {
+            margin-bottom: 20px;
+        }
+        .intro-text {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+        .examples-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1;
+        }
+        .example-row {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+        .example-box {
+            flex: 1;
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .example-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .example-icon {
+            font-size: 24px;
+            color: #10397b;
+            margin-right: 10px;
+        }
+        .example-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #10397b;
+        }
+        .image-container {
+            display: flex;
+            gap: 10px;
+            flex-grow: 1;
+        }
+        .image-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 5px;
+        }
+        .image-wrapper {
+            width: 100%;
+            height: 160px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(16, 57, 123, 0.15);
+        }
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-caption {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .key-findings {
+            margin-top: 20px;
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+        }
+        .findings-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .findings-title i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .findings-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        .finding-item {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+        }
+        .finding-icon {
+            color: #10397b;
+            margin-right: 8px;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+        .finding-text {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Results - Qualitative Analysis</h1>
+        </div>
+        <div class="content">
+            <div class="intro">
+                <p class="intro-text">
+                    Comparison of defect detection in <span class="highlight">RGB images</span> vs. <span class="highlight">fused multispectral images</span> demonstrates the enhanced visibility of defects through our approach
+                </p>
+            </div>
+            
+            <div class="examples-container">
+                <div class="example-row">
+                    <div class="example-box">
+                        <div class="example-header">
+                            <i class="material-icons example-icon">broken_image</i>
+                            <div class="example-title">Blade Cracks</div>
+                        </div>
+                        <div class="image-container">
+                            <div class="image-box">
+                                <div class="image-label">RGB Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2a_blade.png" alt="RGB image of blade crack">
+                                </div>
+                                <div class="image-caption">Crack visibility hampered by shadows and surface texture</div>
+                            </div>
+                            <div class="image-box">
+                                <div class="image-label">Fused Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2b_blade.png" alt="Fused image of blade crack">
+                                </div>
+                                <div class="image-caption">Enhanced contrast along fracture line improves detection</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="example-header">
+                            <i class="material-icons example-icon">blur_on</i>
+                            <div class="example-title">Tower Corrosion</div>
+                        </div>
+                        <div class="image-container">
+                            <div class="image-box">
+                                <div class="image-label">RGB Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2c_tower.png" alt="RGB image of tower corrosion">
+                                </div>
+                                <div class="image-caption">Subtle surface degradation difficult to distinguish</div>
+                            </div>
+                            <div class="image-box">
+                                <div class="image-label">Fused Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2d_tower.png" alt="Fused image of tower corrosion">
+                                </div>
+                                <div class="image-caption">Corrosion made more distinct against background</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example-row">
+                    <div class="example-box">
+                        <div class="example-header">
+                            <i class="material-icons example-icon">rotate_90_degrees_ccw</i>
+                            <div class="example-title">Rotor Stress</div>
+                        </div>
+                        <div class="image-container">
+                            <div class="image-box">
+                                <div class="image-label">RGB Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2e_rotor.png" alt="RGB image of rotor">
+                                </div>
+                                <div class="image-caption">No visible signs of structural stress</div>
+                            </div>
+                            <div class="image-box">
+                                <div class="image-label">Fused Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2f_rotor.png" alt="Fused image of rotor">
+                                </div>
+                                <div class="image-caption">Thermal patterns reveal potential stress points</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="example-header">
+                            <i class="material-icons example-icon">local_fire_department</i>
+                            <div class="example-title">Motor Overheating</div>
+                        </div>
+                        <div class="image-container">
+                            <div class="image-box">
+                                <div class="image-label">RGB Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2g_motor.png" alt="RGB image of motor">
+                                </div>
+                                <div class="image-caption">No obvious signs of damage visible</div>
+                            </div>
+                            <div class="image-box">
+                                <div class="image-label">Fused Image</div>
+                                <div class="image-wrapper">
+                                    <img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2h_motor.png" alt="Fused image of motor">
+                                </div>
+                                <div class="image-caption">Critical thermal hotspots clearly revealed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-findings">
+                <div class="findings-title">
+                    <i class="material-icons">insights</i>
+                    Key Observations
+                </div>
+                <div class="findings-content">
+                    <div class="finding-item">
+                        <i class="material-icons finding-icon">check_circle</i>
+                        <div class="finding-text">
+                            <span class="highlight">Enhanced contrast</span> improves detection of visible surface defects
+                        </div>
+                    </div>
+                    <div class="finding-item">
+                        <i class="material-icons finding-icon">check_circle</i>
+                        <div class="finding-text">
+                            <span class="highlight">Thermal anomalies</span> invisible in RGB spectrum are revealed
+                        </div>
+                    </div>
+                    <div class="finding-item">
+                        <i class="material-icons finding-icon">check_circle</i>
+                        <div class="finding-text">
+                            <span class="highlight">Critical defects</span> missed by visual inspection are detected
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusion and Future Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            padding: 40px 70px 20px;
+            background-color: #10397b;
+            color: white;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px 70px;
+            display: flex;
+            flex-direction: column;
+        }
+        .conclusion-container {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        .conclusion-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .conclusion-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .conclusion-box {
+            background-color: #f0f6ff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .conclusion-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .conclusion-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .conclusion-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .point-icon {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .point-text {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        .future-container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .future-box {
+            background-color: #e0ecff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.1);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .future-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #10397b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .future-title i {
+            margin-right: 10px;
+            font-size: 30px;
+        }
+        .future-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex-grow: 1;
+        }
+        .future-item {
+            flex-basis: calc(50% - 10px);
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(16, 57, 123, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+        .future-icon {
+            color: #10397b;
+            margin-right: 10px;
+            font-size: 24px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .future-text {
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .highlight {
+            color: #10397b;
+            font-weight: 600;
+        }
+        .key-metrics {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        .metric-box {
+            flex-basis: 23%;
+            background-color: #10397b;
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(16, 57, 123, 0.2);
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <h1 class="title">Conclusion and Future Work</h1>
+        </div>
+        <div class="content">
+            <div class="conclusion-container">
+                <div class="conclusion-left">
+                    <div class="conclusion-box">
+                        <div class="conclusion-title">
+                            <i class="material-icons">check_circle</i>
+                            Key Findings
+                        </div>
+                        <div class="conclusion-content">
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    Ensemble approach achieves <span class="highlight">mAP@.5 of 0.93</span> and <span class="highlight">F1-score of 0.90</span>
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    <span class="highlight">2.2% improvement</span> over single YOLOv8 model
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    Superior detection of <span class="highlight">thermal defects</span> invisible in RGB spectrum
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    Enhanced visibility of <span class="highlight">subtle cracks</span> and <span class="highlight">corrosion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="conclusion-right">
+                    <div class="conclusion-box">
+                        <div class="conclusion-title">
+                            <i class="material-icons">lightbulb</i>
+                            Advantages
+                        </div>
+                        <div class="conclusion-content">
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    <span class="highlight">Multi-modal synergy</span> provides comprehensive diagnostic tool
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    Combines <span class="highlight">speed of single-stage</span> with <span class="highlight">precision of specialist model</span>
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    Reduces both <span class="highlight">false negatives</span> and <span class="highlight">false positives</span>
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="material-icons point-icon">arrow_right</i>
+                                <div class="point-text">
+                                    Addresses limitations of <span class="highlight">single-spectral approaches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="future-container">
+                <div class="future-box">
+                    <div class="future-title">
+                        <i class="material-icons">trending_up</i>
+                        Future Research Directions
+                    </div>
+                    <div class="future-content">
+                        <div class="future-item">
+                            <i class="material-icons future-icon">speed</i>
+                            <div class="future-text">
+                                Optimize ensemble for <span class="highlight">real-time edge deployment</span> on computationally constrained UAVs
+                            </div>
+                        </div>
+                        <div class="future-item">
+                            <i class="material-icons future-icon">sensors</i>
+                            <div class="future-text">
+                                Develop more <span class="highlight">robust sensor fusion algorithms</span> to mitigate alignment challenges
+                            </div>
+                        </div>
+                        <div class="future-item">
+                            <i class="material-icons future-icon">filter_center_focus</i>
+                            <div class="future-text">
+                                Reduce <span class="highlight">environmental noise sensitivity</span> in thermal data processing
+                            </div>
+                        </div>
+                        <div class="future-item">
+                            <i class="material-icons future-icon">layers</i>
+                            <div class="future-text">
+                                Incorporate <span class="highlight">additional data modalities</span> like hyperspectral imaging
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="key-metrics">
+                    <div class="metric-box">
+                        <div class="metric-value">0.93</div>
+                        <div class="metric-label">mAP@.5</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">0.90</div>
+                        <div class="metric-label">F1-Score</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">+2.2%</div>
+                        <div class="metric-label">Improvement</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Defect Types</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

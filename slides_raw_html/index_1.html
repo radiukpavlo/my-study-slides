@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reveal ESM (no bundler)</title>
+
+  <!-- Core CSS and a theme from node_modules -->
+  <link rel="stylesheet" href="./node_modules/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="./node_modules/reveal.js/dist/theme/black.css" id="theme">
+
+  <!-- Optional: code highlighting theme -->
+  <link rel="stylesheet" href="./node_modules/reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section><h1>Hello, Reveal.js 👋</h1></section>
+      <section data-markdown>
+        <textarea data-template>
+# Markdown slide
+- Bullet 1
+- Bullet 2
+        </textarea>
+      </section>
+    </div>
+  </div>
+
+  <!-- Load our module -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
