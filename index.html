@@ -24,9 +24,14 @@
         }
         .slide-container {
             width: 1280px;
+<<<<<<< HEAD
             height: 720px; /* Enforce fixed 16:9 height */
             aspect-ratio: 16 / 9; /* Keep proportions consistent */
             margin: 0 auto; /* Center; wrapper controls spacing */
+=======
+            height: 720px;
+            margin: 40px auto; /* Add space between slides and center them */
+>>>>>>> 618932c670e5cba375d8b69914828d78aeea3874
             box-shadow: 0 10px 25px rgba(16, 57, 123, 0.15);
             position: relative;
             overflow: hidden;
@@ -107,6 +112,33 @@
             z-index: 3;
             width: 1280px;
             height: 720px;
+        }
+        .slide-1 .logos-bar {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            z-index: 4;
+            pointer-events: none;
+        }
+        .slide-1 .logos-bar .logo {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 8px;
+            padding: 6px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            pointer-events: auto;
+        }
+        .slide-1 .logos-bar img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
         .slide-1 .left-content {
             width: 65%;
@@ -199,6 +231,7 @@
             flex-grow: 1;
             padding: 30px 70px;
             background: linear-gradient(to bottom, #f8fafd 0%, #f0f6ff 100%);
+            overflow: auto;
         }
         .content-slide .highlight::after {
             content: '';
@@ -214,13 +247,13 @@
 
         /* Slide 2: Abstract */
         .slide-2 .content { display: flex; flex-direction: column; }
-        .slide-2 .abstract-container { display: flex; margin-bottom: 30px; }
+        .slide-2 .abstract-container { display: flex; margin-bottom: 20px; }
         .slide-2 .abstract-box { flex: 1; background-color: white; border-radius: 10px; padding: 25px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; }
         .slide-2 .abstract-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
         .slide-2 .abstract-title { font-size: 24px; font-weight: 600; color: #10397b; margin-bottom: 15px; display: flex; align-items: center; }
         .slide-2 .abstract-title i { margin-right: 10px; color: #4a9fff; }
         .slide-2 .abstract-text { font-size: 20px; line-height: 1.5; }
-        .slide-2 .key-points { display: flex; justify-content: space-between; flex-grow: 1; }
+        .slide-2 .key-points { display: flex; justify-content: space-between; flex-grow: 1; gap: 20px; }
         .slide-2 .point { flex-basis: 31%; background-color: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform 0.3s ease; }
         .slide-2 .point:hover { transform: translateY(-5px); }
         .slide-2 .point::after { content: ''; position: absolute; bottom: 0; right: 0; width: 60px; height: 60px; background: linear-gradient(135deg, transparent 50%, rgba(74, 159, 255, 0.1) 50%); border-radius: 50% 0 0 0; }
@@ -234,7 +267,7 @@
         .slide-2 .metric-label { font-size: 12px; color: #555; }
 
         /* Slide 3: Introduction */
-        .slide-3 .content { display: flex; gap: 40px; }
+        .slide-3 .content { display: flex; gap: 30px; }
         .slide-3 .left-column, .slide-3 .right-column { flex: 1; display: flex; flex-direction: column; }
         .slide-3 .right-column { justify-content: center; }
         .slide-3 .left-column { gap: 20px; }
@@ -246,7 +279,7 @@
         .slide-3 .challenge-points { list-style-type: none; }
         .slide-3 .challenge-point { font-size: 18px; margin-bottom: 12px; display: flex; align-items: flex-start; }
         .slide-3 .challenge-point i { color: #4a9fff; margin-right: 10px; font-size: 16px; margin-top: 4px; flex-shrink: 0; }
-        .slide-3 .image-container { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
+        .slide-3 .image-container { width: 100%; height: 100%; min-height: 280px; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
         .slide-3 .image-container img { width: 100%; height: 100%; object-fit: cover; }
         .slide-3 .image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(16, 57, 123, 0.1), rgba(16, 57, 123, 0.3)); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
         .slide-3 .image-caption { color: white; font-size: 18px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
@@ -278,11 +311,11 @@
 
         /* Slide 5: Methodology Overview */
         .slide-5 .content { display: flex; flex-direction: column; }
-        .slide-5 .workflow-container { display: flex; justify-content: center; margin-bottom: 30px; }
+        .slide-5 .workflow-container { display: flex; justify-content: center; margin-bottom: 20px; }
         .slide-5 .workflow-image { max-width: 90%; height: auto; border-radius: 12px; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); transition: transform 0.3s ease; }
         .slide-5 .workflow-image:hover { transform: scale(1.02); }
         .slide-5 .workflow-caption { text-align: center; font-size: 16px; color: #555; margin-top: 10px; font-style: italic; }
-        .slide-5 .stages-container { display: flex; justify-content: space-between; flex-grow: 1; gap: 20px; }
+        .slide-5 .stages-container { display: flex; justify-content: space-between; flex-grow: 1; gap: 16px; }
         .slide-5 .stage-box { flex: 1; background-color: white; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
         .slide-5 .stage-box:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(16, 57, 123, 0.12); }
         .slide-5 .stage-box::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #10397b, #4a9fff); }
@@ -295,7 +328,7 @@
 
         /* Slide 6: Data Collection and Fusion */
         .slide-6 .content { display: flex; flex-direction: column; }
-        .slide-6 .channels-container { display: flex; gap: 30px; margin-bottom: 30px; }
+        .slide-6 .channels-container { display: flex; gap: 20px; margin-bottom: 20px; }
         .slide-6 .channel-box, .slide-6 .fusion-steps, .slide-6 .formula-box { background-color: white; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; }
         .slide-6 .channel-box { flex: 1; transition: transform 0.3s ease; }
         .slide-6 .channel-box:hover { transform: translateY(-5px); }
@@ -310,7 +343,7 @@
         .slide-6 .feature-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
         .slide-6 .feature-icon { color: #4a9fff; margin-right: 10px; font-size: 16px; margin-top: 4px; flex-shrink: 0; }
         .slide-6 .feature-text { font-size: 18px; line-height: 1.4; }
-        .slide-6 .fusion-section { flex-grow: 1; display: flex; gap: 30px; }
+        .slide-6 .fusion-section { flex-grow: 1; display: flex; gap: 20px; }
         .slide-6 .fusion-steps { flex: 3; }
         .slide-6 .steps-container { display: flex; flex-direction: column; gap: 15px; }
         .slide-6 .step-item { display: flex; align-items: flex-start; background-color: rgba(74, 159, 255, 0.05); border-radius: 10px; padding: 15px; transition: transform 0.3s ease; }
@@ -326,7 +359,7 @@
 
         /* Slide 7: YOLO Models */
         .slide-7 .content { display: flex; flex-direction: column; }
-        .slide-7 .models-container { display: flex; gap: 30px; margin-bottom: 30px; }
+        .slide-7 .models-container { display: flex; gap: 20px; margin-bottom: 20px; }
         .slide-7 .model-box { flex: 1; background-color: white; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; transition: transform 0.3s ease; }
         .slide-7 .model-box:hover { transform: translateY(-5px); }
         .slide-7 .model-header { display: flex; align-items: center; margin-bottom: 20px; position: relative; z-index: 1; }
@@ -342,7 +375,7 @@
         .slide-7 .defects-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
         .slide-7 .defects-icon i { font-size: 24px; color: white; }
         .slide-7 .defects-title { font-size: 24px; font-weight: 600; color: #10397b; }
-        .slide-7 .defects-container { display: flex; gap: 20px; flex-grow: 1; }
+        .slide-7 .defects-container { display: flex; gap: 16px; flex-grow: 1; }
         .slide-7 .defect-box { flex: 1; background-color: white; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s ease; position: relative; overflow: hidden; }
         .slide-7 .defect-box:hover { transform: translateY(-5px); }
         .slide-7 .defect-icon { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-bottom: 15px; position: relative; z-index: 1; }
@@ -355,7 +388,7 @@
 
         /* Slide 8: Ensemble Fusion Algorithm */
         .slide-8 .content { display: flex; flex-direction: column; }
-        .slide-8 .algorithm-container { display: flex; gap: 30px; flex-grow: 1; }
+        .slide-8 .algorithm-container { display: flex; gap: 20px; flex-grow: 1; }
         .slide-8 .algorithm-left, .slide-8 .algorithm-right { flex: 1; display: flex; flex-direction: column; }
         .slide-8 .algorithm-box, .slide-8 .formula-box, .slide-8 .param-box { background-color: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; transition: transform 0.3s ease; }
         .slide-8 .algorithm-box:hover, .slide-8 .formula-box:hover, .slide-8 .param-box:hover { transform: translateY(-5px); }
@@ -373,7 +406,7 @@
         .slide-8 .formula-title { font-size: 22px; font-weight: 600; color: #10397b; margin-bottom: 20px; text-align: center; position: relative; z-index: 1; }
         .slide-8 .formula { font-size: 20px; font-weight: 600; color: #10397b; text-align: center; margin-bottom: 15px; position: relative; z-index: 1; }
         .slide-8 .formula-desc { font-size: 16px; text-align: center; line-height: 1.4; position: relative; z-index: 1; }
-        .slide-8 .key-params { display: flex; gap: 20px; }
+        .slide-8 .key-params { display: flex; gap: 16px; }
         .slide-8 .param-box { flex: 1; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .slide-8 .param-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-bottom: 15px; position: relative; z-index: 1; }
         .slide-8 .param-icon i { font-size: 24px; color: white; }
@@ -384,10 +417,10 @@
 
         /* Slide 9: Results - Performance Comparison */
         .slide-9 .content { display: flex; flex-direction: column; padding: 30px 70px; }
-        .slide-9 .results-container { display: flex; gap: 30px; flex-grow: 1; }
+        .slide-9 .results-container { display: flex; gap: 20px; flex-grow: 1; }
         .slide-9 .table-section, .slide-9 .chart-box, .slide-9 .finding-box { background-color: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; }
         .slide-9 .table-section::before, .slide-9 .chart-box::before, .slide-9 .finding-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
-        .slide-9 .table-section { flex: 1.2; padding: 25px; display: flex; flex-direction: column; }
+        .slide-9 .table-section { flex: 1.2; padding: 20px; display: flex; flex-direction: column; }
         .slide-9 .table-header { display: flex; align-items: center; margin-bottom: 20px; position: relative; z-index: 1; }
         .slide-9 .table-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
         .slide-9 .table-icon i { font-size: 24px; color: white; }
@@ -399,7 +432,7 @@
         .slide-9 tr:last-child td { border-bottom: none; font-weight: 600; background-color: rgba(74, 159, 255, 0.1); }
         .slide-9 .highlight { font-weight: 700; }
         .slide-9 .chart-section { flex: 0.8; display: flex; flex-direction: column; gap: 20px; }
-        .slide-9 .chart-box { flex: 1; padding: 20px; display: flex; flex-direction: column; }
+        .slide-9 .chart-box { flex: 1; padding: 16px; display: flex; flex-direction: column; }
         .slide-9 .chart-title { font-size: 20px; font-weight: 600; color: #10397b; margin-bottom: 15px; display: flex; align-items: center; position: relative; z-index: 1; }
         .slide-9 .chart-title i { margin-right: 10px; color: #4a9fff; }
         .slide-9 .chart-container { flex-grow: 1; position: relative; z-index: 1; }
@@ -415,8 +448,8 @@
 
         /* Slide 10: Results - State-of-the-Art Comparison */
         .slide-10 .content { display: flex; flex-direction: column; }
-        .slide-10 .main-container { display: flex; gap: 30px; flex-grow: 1; }
-        .slide-10 .table-section, .slide-10 .chart-section, .slide-10 .finding-box { background-color: white; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; }
+        .slide-10 .main-container { display: flex; gap: 20px; flex-grow: 1; }
+        .slide-10 .table-section, .slide-10 .chart-section, .slide-10 .finding-box { background-color: white; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; }
         .slide-10 .table-section::before, .slide-10 .chart-section::before, .slide-10 .finding-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
         .slide-10 .table-section, .slide-10 .chart-section { flex: 1; display: flex; flex-direction: column; }
         .slide-10 .section-header { display: flex; align-items: center; margin-bottom: 20px; position: relative; z-index: 1; }
@@ -442,10 +475,10 @@
         .slide-10 .model-tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 14px; font-weight: 600; margin-left: 8px; background-color: rgba(74, 159, 255, 0.2); color: #10397b; }
 
         /* Slide 11: Results - Qualitative Analysis */
-        .slide-11 .content { padding: 25px 70px; display: flex; flex-direction: column; }
+        .slide-11 .content { padding: 20px 60px; display: flex; flex-direction: column; }
         .slide-11 .intro { margin-bottom: 20px; text-align: center; }
         .slide-11 .intro-text { font-size: 20px; line-height: 1.5; color: #10397b; font-weight: 600; }
-        .slide-11 .examples-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px; flex-grow: 1; }
+        .slide-11 .examples-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px; flex-grow: 1; }
         .slide-11 .example-card { background-color: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
         .slide-11 .example-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(16, 57, 123, 0.12); }
         .slide-11 .example-card::before, .slide-11 .key-findings::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
@@ -474,7 +507,7 @@
 
         /* Slide 12: Conclusion and Future Work */
         .slide-12 .content { display: flex; flex-direction: column; }
-        .slide-12 .main-container { display: flex; gap: 30px; flex-grow: 1; }
+        .slide-12 .main-container { display: flex; gap: 20px; flex-grow: 1; }
         .slide-12 .left-column, .slide-12 .right-column { flex: 1; display: flex; flex-direction: column; gap: 20px; }
         .slide-12 .conclusion-box { background-color: white; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; flex-grow: 1; transition: transform 0.3s ease; }
         .slide-12 .conclusion-box:hover { transform: translateY(-5px); }
@@ -511,6 +544,7 @@
     <div class="slide-container slide-1">
         <div class="background"></div>
         <div class="overlay"></div>
+<<<<<<< HEAD
         <!-- Institution/partner logos row -->
         <div class="logos">
             <img src="slides_icons/60_Icon_1_IDAACS2025.jpg" alt="IDAACS 2025" />
@@ -519,6 +553,15 @@
             <img src="slides_icons/60_Icon_4_WEU.png" alt="WEU" />
             <img src="slides_icons/60_Icon_5_ICS.jpg" alt="ICS" />
             <img src="slides_icons/60_Icon_6_Glushkov.jpg" alt="Glushkov Institute" />
+=======
+        <div class="logos-bar">
+            <div class="logo"><img src="slides_icons/60_Icon_1_IDAACS2025.jpg" alt="IDAACS 2025"></div>
+            <div class="logo"><img src="slides_icons/60_Icon_2_Silesian.png" alt="Silesian University of Technology"></div>
+            <div class="logo"><img src="slides_icons/60_Icon_3_Research-univer.png" alt="Research University"></div>
+            <div class="logo"><img src="slides_icons/60_Icon_4_WEU.png" alt="WEU"></div>
+            <div class="logo"><img src="slides_icons/60_Icon_5_ICS.jpg" alt="ICS"></div>
+            <div class="logo"><img src="slides_icons/60_Icon_6_Glushkov.jpg" alt="Glushkov Institute"></div>
+>>>>>>> 618932c670e5cba375d8b69914828d78aeea3874
         </div>
         <div class="content">
             <div class="left-content">
