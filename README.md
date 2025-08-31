@@ -2,7 +2,7 @@
 
 A lightweight, static slide deck for the talk:
 
-YOLO Ensemble for UAV-based Multispectral Defect Detection
+YOLO Ensemble for UAV-based Multispectral Defect Detection in Wind Turbine Components
 
 - Online slides: https://radiukpavlo.github.io/my-study-slides/
 
