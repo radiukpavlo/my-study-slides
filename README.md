@@ -32,7 +32,7 @@ You can host the slides at a public URL from this repository.
 2) In your GitHub repo: Settings → Pages.
 3) Under “Source”, choose “Deploy from a branch”.
 4) Select your default branch (e.g., `main`) and folder `/` (root), then save.
-5) Wait for the Pages deployment to finish; your site will be available at `https://<your-username>.github.io/<your-repo>/`.
+5) Wait for the Pages deployment to finish; your site will be available at `https://radiukpavlo.github.io/my-study-slides/`.
 
 Notes:
 - The entry point is `index.html` in the repository root (already configured).
