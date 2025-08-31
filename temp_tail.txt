@@ -1,0 +1,220 @@
+                <div class="algorithm-right">
+                    <div class="formula-box">
+                        <div class="formula-title">Weighted Average Formulas</div>
+                        <div class="formula">p<sub>ensemble</sub> = γp<sub>Mt,j</sub> + (1−γ)p<sub>y,i</sub></div>
+                        <div class="formula">x<sub>ensemble</sub> = γx<sub>Mt,j</sub> + (1−γ)x<sub>y,i</sub></div>
+                        <div class="formula">y<sub>ensemble</sub> = γy<sub>Mt,j</sub> + (1−γ)y<sub>y,i</sub></div>
+                        <div class="formula">W<sub>ensemble</sub> = γW<sub>Mt,j</sub> + (1−γ)W<sub>y,i</sub></div>
+                        <div class="formula">H<sub>ensemble</sub> = γH<sub>Mt,j</sub> + (1−γ)H<sub>y,i</sub></div>
+                        <div class="formula-desc">Where γ ∈ [0, 1] controls the contribution of each model</div><div class="decoration"></div>
+                    </div>
+                    <div class="key-params">
+                        <div class="param-box"><div class="param-icon"><i class="fas fa-sliders-h"></i></div><div class="param-title">Weighting Factor</div><div class="param-desc">γ = 0.5 assigns equal importance to both models</div><div class="decoration"></div></div>
+                        <div class="param-box"><div class="param-icon"><i class="fas fa-filter"></i></div><div class="param-title">NMS Threshold</div><div class="param-desc">Removes boxes with IoU above threshold τ<sub>nms</sub></div><div class="decoration"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Results - Performance Comparison -->
+    <div class="slide-container slide-9 content-slide">
+        <div class="header"><h1 class="title">Results - Performance Comparison</h1></div>
+        <div class="content">
+            <div class="results-container">
+                <div class="table-section">
+                    <div class="table-header"><div class="table-icon"><i class="fas fa-table"></i></div><div class="table-title">YOLOv8 vs. Ensemble Performance</div></div>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th rowspan="2">Defect Class</th><th colspan="2">mAP@.5</th><th colspan="2">mAP@.5:.95</th><th colspan="2">Precision</th><th colspan="2">F1-Score</th></tr><tr><th>YOLOv8</th><th>Ensemble</th><th>YOLOv8</th><th>Ensemble</th><th>YOLOv8</th><th>Ensemble</th><th>YOLOv8</th><th>Ensemble</th></tr></thead>
+                            <tbody><tr><td>Cracks (C1)</td><td>0.93</td><td class="highlight">0.95</td><td>0.78</td><td class="highlight">0.81</td><td>0.91</td><td class="highlight">0.93</td><td>0.90</td><td class="highlight">0.92</td></tr><tr><td>Corrosion (C2)</td><td>0.90</td><td class="highlight">0.92</td><td>0.75</td><td class="highlight">0.78</td><td>0.88</td><td class="highlight">0.90</td><td>0.87</td><td class="highlight">0.89</td></tr><tr><td>Overheating (C3)</td><td>0.89</td><td class="highlight">0.92</td><td>0.74</td><td class="highlight">0.77</td><td>0.87</td><td class="highlight">0.90</td><td>0.86</td><td class="highlight">0.89</td></tr><tr><td><strong>Mean</strong></td><td>0.91</td><td class="highlight">0.93</td><td>0.76</td><td class="highlight">0.79</td><td>0.89</td><td class="highlight">0.91</td><td>0.88</td><td class="highlight">0.90</td></tr></tbody>
+                        </table>
+                    </div><div class="decoration"></div>
+                </div>
+                <div class="chart-section">
+                    <div class="chart-box"><div class="chart-title"><i class="fas fa-chart-bar"></i>mAP@.5 Comparison</div><div class="chart-container"><canvas id="mapChart"></canvas></div><div class="decoration"></div></div>
+                    <div class="chart-box"><div class="chart-title"><i class="fas fa-chart-line"></i>F1-Score Comparison</div><div class="chart-container"><canvas id="f1Chart"></canvas></div><div class="decoration"></div></div>
+                </div>
+            </div>
+            <div class="key-findings">
+                <div class="finding-box"><div class="finding-icon"><i class="fas fa-chart-line"></i></div><div class="finding-content"><div class="finding-title">Overall Improvement</div><div class="finding-desc">Ensemble achieves <span class="improvement">+2.2%</span> mAP@.5 and <span class="improvement">+3.9%</span> mAP@.5:.95 over single model</div></div><div class="decoration"></div></div>
+                <div class="finding-box"><div class="finding-icon"><i class="fas fa-temperature-high"></i></div><div class="finding-content"><div class="finding-title">Thermal Defects</div><div class="finding-desc">Overheating detection shows <span class="improvement">+3.4%</span> improvement in mAP@.5 with specialized model</div></div><div class="decoration"></div></div>
+                <div class="finding-box"><div class="finding-icon"><i class="fas fa-balance-scale"></i></div><div class="finding-content"><div class="finding-title">Balanced Performance</div><div class="finding-desc">Ensemble maintains high precision while reducing false negatives across all defect types</div></div><div class="decoration"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Results - State-of-the-Art Comparison -->
+    <div class="slide-container slide-10 content-slide">
+        <div class="header"><h1 class="title">Results - State-of-the-Art Comparison</h1></div>
+        <div class="content">
+            <div class="main-container">
+                <div class="table-section">
+                    <div class="section-header"><div class="section-icon"><i class="fas fa-trophy"></i></div><div class="section-title">Performance Comparison</div></div>
+                    <div class="table-wrapper">
+                        <table><thead><tr><th>Model</th><th>mAP@.5</th><th>mAP@.5:.95</th></tr></thead>
+                        <tbody><tr><td>Faster R-CNN</td><td>0.89</td><td>0.74</td></tr><tr><td>Cascade R-CNN</td><td>0.90</td><td>0.75</td></tr><tr><td>EfficientDet-D1</td><td>0.91</td><td>0.76</td></tr><tr><td>YOLOv8</td><td>0.91</td><td>0.76</td></tr><tr><td>Our Ensemble <span class="model-tag">OURS</span></td><td class="highlight">0.93</td><td class="highlight">0.79</td></tr></tbody></table>
+                    </div><div class="decoration"></div>
+                </div>
+                <div class="chart-section">
+                    <div class="section-header"><div class="section-icon"><i class="fas fa-chart-bar"></i></div><div class="section-title">Visual Comparison</div></div>
+                    <div class="chart-container"><canvas id="sotaPerformanceChart"></canvas></div><div class="decoration"></div>
+                </div>
+            </div>
+            <div class="key-findings">
+                <div class="finding-box"><div class="finding-icon"><i class="fas fa-medal"></i></div><div class="finding-content"><div class="finding-title">Top Performance</div><div class="finding-desc">Our ensemble achieves <span class="improvement">highest mAP@.5 (0.93)</span> and <span class="improvement">mAP@.5:.95 (0.79)</span> among all models</div></div><div class="decoration"></div></div>
+                <div class="finding-box"><div class="finding-icon"><i class="fas fa-tachometer-alt"></i></div><div class="finding-content"><div class="finding-title">Single-Stage Advantage</div><div class="finding-desc">Single-stage detectors (YOLOv8, EfficientDet) outperform two-stage approaches in speed-accuracy balance</div></div><div class="decoration"></div></div>
+                <div class="finding-box"><div class="finding-icon"><i class="fas fa-lightbulb"></i></div><div class="finding-content"><div class="finding-title">Ensemble Benefits</div><div class="finding-desc">Fusion of YOLOv8 with specialized thermal model provides <span class="improvement">+3.9%</span> improvement in stricter mAP@.5:.95 metric</div></div><div class="decoration"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Results - Qualitative Analysis -->
+    <div class="slide-container slide-11 content-slide">
+        <div class="header"><h1 class="title">Results - Qualitative Analysis</h1></div>
+        <div class="content">
+            <div class="intro"><p class="intro-text">Comparison of <span class="highlight">RGB images</span> vs. <span class="highlight">fused multispectral images</span> demonstrates enhanced defect visibility</p></div>
+            <div class="examples-grid">
+                <div class="example-card"><div class="improvement-badge">+2.2% mAP</div><div class="example-header"><div class="example-icon"><i class="fas fa-broken-image"></i></div><div class="example-title">Blade Cracks</div></div><div class="example-content"><div class="image-comparison"><div class="image-box"><div class="image-label">RGB Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2a_blade.png" alt="RGB image of blade crack"></div><div class="image-caption">Visibility hampered by shadows</div></div><div class="image-box"><div class="image-label">Fused Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2b_blade.png" alt="Fused image of blade crack"></div><div class="image-caption">Enhanced fracture line contrast</div></div></div></div></div>
+                <div class="example-card"><div class="improvement-badge">+2.0% mAP</div><div class="example-header"><div class="example-icon"><i class="fas fa-water"></i></div><div class="example-title">Tower Corrosion</div></div><div class="example-content"><div class="image-comparison"><div class="image-box"><div class="image-label">RGB Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2c_tower.png" alt="RGB image of tower corrosion"></div><div class="image-caption">Subtle surface degradation</div></div><div class="image-box"><div class="image-label">Fused Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2d_tower.png" alt="Fused image of tower corrosion"></div><div class="image-caption">Distinct corrosion patterns</div></div></div></div></div>
+                <div class="example-card"><div class="improvement-badge">+3.0% mAP</div><div class="example-header"><div class="example-icon"><i class="fas fa-sync-alt"></i></div><div class="example-title">Rotor Stress</div></div><div class="example-content"><div class="image-comparison"><div class="image-box"><div class="image-label">RGB Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2e_rotor.png" alt="RGB image of rotor"></div><div class="image-caption">No visible stress indicators</div></div><div class="image-box"><div class="image-label">Fused Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2f_rotor.png" alt="Fused image of rotor"></div><div class="image-caption">Thermal stress patterns revealed</div></div></div></div></div>
+                <div class="example-card"><div class="improvement-badge">+3.4% mAP</div><div class="example-header"><div class="example-icon"><i class="fas fa-fire"></i></div><div class="example-title">Motor Overheating</div></div><div class="example-content"><div class="image-comparison"><div class="image-box"><div class="image-label">RGB Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2g_motor.png" alt="RGB image of motor"></div><div class="image-caption">No visible damage signs</div></div><div class="image-box"><div class="image-label">Fused Image</div><div class="image-container"><img src="https://raw.githubusercontent.com/sOsvystun/UAV/refs/heads/main/img/yolo_ense_2h_motor.png" alt="Fused image of motor"></div><div class="image-caption">Critical thermal hotspots visible</div></div></div></div></div>
+            </div>
+            <div class="key-findings">
+                <div class="findings-header"><div class="findings-icon"><i class="fas fa-lightbulb"></i></div><div class="findings-title">Key Observations</div></div>
+                <div class="findings-content">
+                    <div class="finding-item"><i class="fas fa-check-circle"></i><div class="finding-text"><span class="highlight">Enhanced contrast</span> improves surface defect detection</div></div>
+                    <div class="finding-item"><i class="fas fa-check-circle"></i><div class="finding-text"><span class="highlight">Thermal anomalies</span> invisible in RGB revealed</div></div>
+                    <div class="finding-item"><i class="fas fa-check-circle"></i><div class="finding-text"><span class="highlight">Critical defects</span> missed by visual inspection detected</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: Conclusion and Future Work -->
+    <div class="slide-container slide-12 content-slide">
+        <div class="header"><h1 class="title">Conclusion and Future Work</h1></div>
+        <div class="content">
+            <div class="main-container">
+                <div class="left-column">
+                    <div class="conclusion-box">
+                        <div class="box-header"><div class="box-icon"><i class="fas fa-check-circle"></i></div><div class="box-title">Key Findings</div></div>
+                        <div class="key-points">
+                            <div class="point-item"><i class="fas fa-chart-line point-icon"></i><div class="point-text"><span class="highlight">mAP@.5: 0.93</span> | <span class="highlight">F1-score: 0.90</span></div></div>
+                            <div class="point-item"><i class="fas fa-arrow-up point-icon"></i><div class="point-text"><span class="highlight">+2.2%</span> improvement over single YOLOv8</div></div>
+                            <div class="point-item"><i class="fas fa-temperature-high point-icon"></i><div class="point-text">Superior <span class="highlight">thermal defect</span> detection</div></div>
+                            <div class="point-item"><i class="fas fa-search-plus point-icon"></i><div class="point-text">Enhanced <span class="highlight">subtle cracks</span> & <span class="highlight">corrosion</span> visibility</div></div>
+                        </div>
+                        <div class="chart-container"><canvas id="conclusionPerformanceChart"></canvas></div><div class="decoration"></div>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="conclusion-box">
+                        <div class="box-header"><div class="box-icon"><i class="fas fa-lightbulb"></i></div><div class="box-title">Advantages</div></div>
+                        <div class="key-points">
+                            <div class="point-item"><i class="fas fa-layer-group point-icon"></i><div class="point-text"><span class="highlight">Multi-modal synergy</span> for comprehensive diagnostics</div></div>
+                            <div class="point-item"><i class="fas fa-balance-scale point-icon"></i><div class="point-text"><span class="highlight">Speed</span> of single-stage + <span class="highlight">precision</span> of specialist model</div></div>
+                            <div class="point-item"><i class="fas fa-exclamation-triangle point-icon"></i><div class="point-text">Reduces <span class="highlight">false negatives</span> & <span class="highlight">false positives</span></div></div>
+                            <div class="point-item"><i class="fas fa-eye point-icon"></i><div class="point-text">Addresses <span class="highlight">single-spectral limitations</span></div></div>
+                        </div><div class="decoration"></div>
+                    </div>
+                    <div class="conclusion-box">
+                        <div class="box-header"><div class="box-icon"><i class="fas fa-rocket"></i></div><div class="box-title">Future Research</div></div>
+                        <div class="future-grid">
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-microchip"></i></div><div class="future-text"><span class="highlight">Edge deployment</span> optimization for UAVs</div></div>
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-object-group"></i></div><div class="future-text"><span class="highlight">Robust sensor fusion</span> algorithms</div></div>
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-filter"></i></div><div class="future-text"><span class="highlight">Environmental noise</span> reduction</div></div>
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-satellite"></i></div><div class="future-text"><span class="highlight">Hyperspectral imaging</span> integration</div></div>
+                        </div><div class="decoration"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-container">
+                <div class="metric-card"><div class="metric-value">0.93</div><div class="metric-label">mAP@.5</div></div>
+                <div class="metric-card"><div class="metric-value">0.90</div><div class="metric-label">F1-Score</div></div>
+                <div class="metric-card"><div class="metric-value">+2.2%</div><div class="metric-label">Improvement</div></div>
+                <div class="metric-card"><div class="metric-value">3</div><div class="metric-label">Defect Types</div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Chart options
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { beginAtZero: false, min: 0.85 },
+                x: { ticks: { font: { size: 12 } } }
+            },
+            plugins: { legend: { position: 'top', labels: { font: { size: 12 } } } }
+        };
+
+        // Slide 9, Chart 1: mAP@.5 Comparison
+        const mapCtx = document.getElementById('mapChart')?.getContext('2d');
+        if (mapCtx) {
+            new Chart(mapCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Cracks', 'Corrosion', 'Overheating', 'Mean'],
+                    datasets: [
+                        { label: 'YOLOv8', data: [0.93, 0.90, 0.89, 0.91], backgroundColor: 'rgba(16, 57, 123, 0.7)' },
+                        { label: 'Ensemble', data: [0.95, 0.92, 0.92, 0.93], backgroundColor: 'rgba(74, 159, 255, 0.7)' }
+                    ]
+                },
+                options: { ...commonChartOptions, scales: { y: { ...commonChartOptions.scales.y, max: 1.0 } } }
+            });
+        }
+
+        // Slide 9, Chart 2: F1-Score Comparison
+        const f1Ctx = document.getElementById('f1Chart')?.getContext('2d');
+        if (f1Ctx) {
+            new Chart(f1Ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Cracks', 'Corrosion', 'Overheating', 'Mean'],
+                    datasets: [
+                        { label: 'YOLOv8', data: [0.90, 0.87, 0.86, 0.88], borderColor: 'rgba(16, 57, 123, 1)', tension: 0.3 },
+                        { label: 'Ensemble', data: [0.92, 0.89, 0.89, 0.90], borderColor: 'rgba(74, 159, 255, 1)', tension: 0.3 }
+                    ]
+                },
+                options: { ...commonChartOptions, scales: { y: { ...commonChartOptions.scales.y, max: 0.95 } } }
+            });
+        }
+        
+        // Slide 10: State-of-the-Art Performance Chart
+        const sotaCtx = document.getElementById('sotaPerformanceChart')?.getContext('2d');
+        if (sotaCtx) {
+            new Chart(sotaCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Faster R-CNN', 'Cascade R-CNN', 'EfficientDet-D1', 'YOLOv8', 'Our Ensemble'],
+                    datasets: [
+                        { label: 'mAP@.5', data: [0.89, 0.90, 0.91, 0.91, 0.93], backgroundColor: 'rgba(16, 57, 123, 0.7)' },
+                        { label: 'mAP@.5:.95', data: [0.74, 0.75, 0.76, 0.76, 0.79], backgroundColor: 'rgba(74, 159, 255, 0.7)' }
+                    ]
+                },
+                options: { ...commonChartOptions, scales: { y: { beginAtZero: false, min: 0.7, max: 1.0 } } }
+            });
+        }
+
+        // Slide 12: Conclusion Performance Chart
+        const conclusionCtx = document.getElementById('conclusionPerformanceChart')?.getContext('2d');
+        if (conclusionCtx) {
+            new Chart(conclusionCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['YOLOv8', 'Our Ensemble'],
+                    datasets: [
+                        { label: 'mAP@.5', data: [0.91, 0.93], backgroundColor: 'rgba(16, 57, 123, 0.7)' },
+                        { label: 'F1-Score', data: [0.88, 0.90], backgroundColor: 'rgba(74, 159, 255, 0.7)' }
+                    ]
+                },
+                options: { ...commonChartOptions, scales: { y: { ...commonChartOptions.scales.y, max: 1.0 } } }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

@@ -15,20 +15,34 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html, body { height: 100%; }
         body {
             font-family: 'Source Sans Pro', sans-serif;
             background-color: #f0f6ff; /* A neutral background to see the slides */
             color: #333333;
+            scroll-snap-type: y mandatory; /* One slide per viewport */
         }
         .slide-container {
             width: 1280px;
-            min-height: 720px;
-            margin: 40px auto; /* Add space between slides and center them */
+            height: 720px; /* Enforce fixed 16:9 height */
+            aspect-ratio: 16 / 9; /* Keep proportions consistent */
+            margin: 0 auto; /* Center; wrapper controls spacing */
             box-shadow: 0 10px 25px rgba(16, 57, 123, 0.15);
             position: relative;
             overflow: hidden;
             background-color: #ffffff;
+            border-radius: 12px;
         }
+        /* Wrapper that ensures each slide fits viewport */
+        .slide-fit-wrapper {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+        }
+        /* Improve default legibility slightly across slides */
+        .slide-container, .slide-container * { -webkit-font-smoothing: antialiased; }
         .highlight {
             color: #10397b;
             font-weight: 700;
@@ -39,6 +53,31 @@
         /* Slide 1: Title Slide */
         .slide-1 {
             color: #ffffff;
+        }
+        /* Logos ribbon on the first slide */
+        .slide-1 .logos {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
+            z-index: 4;
+            flex-wrap: wrap;
+        }
+        .slide-1 .logos img {
+            height: 68px; /* Larger, clearer logos */
+            max-width: 120px;
+            object-fit: contain;
+            background: rgba(255,255,255,0.9);
+            border-radius: 6px;
+            padding: 4px 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
         .slide-1 .background {
             position: absolute;
@@ -472,6 +511,15 @@
     <div class="slide-container slide-1">
         <div class="background"></div>
         <div class="overlay"></div>
+        <!-- Institution/partner logos row -->
+        <div class="logos">
+            <img src="slides_icons/60_Icon_1_IDAACS2025.jpg" alt="IDAACS 2025" />
+            <img src="slides_icons/60_Icon_2_Silesian.png" alt="Silesian University" />
+            <img src="slides_icons/60_Icon_3_Research-univer.png" alt="Research University" />
+            <img src="slides_icons/60_Icon_4_WEU.png" alt="WEU" />
+            <img src="slides_icons/60_Icon_5_ICS.jpg" alt="ICS" />
+            <img src="slides_icons/60_Icon_6_Glushkov.jpg" alt="Glushkov Institute" />
+        </div>
         <div class="content">
             <div class="left-content">
                 <h1 class="title">YOLO Ensemble for UAV-based Multispectral Defect Detection in Wind Turbine Components</h1>
@@ -791,6 +839,31 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Auto-fit each 16:9 slide to the current viewport using scale transform
+        const BASE_W = 1280, BASE_H = 720;
+        // Wrap slides so each occupies one viewport
+        const slides = Array.from(document.querySelectorAll('.slide-container'));
+        slides.forEach(slide => {
+            if (!slide.parentElement.classList.contains('slide-fit-wrapper')) {
+                const wrap = document.createElement('div');
+                wrap.className = 'slide-fit-wrapper';
+                slide.parentElement.insertBefore(wrap, slide);
+                wrap.appendChild(slide);
+            }
+            slide.style.transformOrigin = 'center center';
+        });
+        function applyScale() {
+            const vw = window.innerWidth || document.documentElement.clientWidth;
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            const scale = Math.min(vw / BASE_W, vh / BASE_H);
+            document.querySelectorAll('.slide-container').forEach(s => {
+                s.style.width = BASE_W + 'px';
+                s.style.height = BASE_H + 'px';
+                s.style.transform = `scale(${scale})`;
+            });
+        }
+        applyScale();
+        window.addEventListener('resize', applyScale);
         // Chart options
         const commonChartOptions = {
             responsive: true,
