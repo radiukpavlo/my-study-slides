@@ -15,36 +15,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html, body { height: 100%; }
         body {
             font-family: 'Source Sans Pro', sans-serif;
             background-color: #f0f6ff; /* A neutral background to see the slides */
             color: #333333;
-            scroll-snap-type: y mandatory; /* One slide per viewport */
         }
         .slide-container {
-            width: 1280px;
-<<<<<<< HEAD
-            height: 720px; /* Enforce fixed 16:9 height */
+            width: min(1280px, 100%);
             aspect-ratio: 16 / 9; /* Keep proportions consistent */
-            margin: 0 auto; /* Center; wrapper controls spacing */
-=======
-            height: 720px;
             margin: 40px auto; /* Add space between slides and center them */
->>>>>>> 618932c670e5cba375d8b69914828d78aeea3874
             box-shadow: 0 10px 25px rgba(16, 57, 123, 0.15);
             position: relative;
             overflow: hidden;
             background-color: #ffffff;
             border-radius: 12px;
-        }
-        /* Wrapper that ensures each slide fits viewport */
-        .slide-fit-wrapper {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            scroll-snap-align: start;
         }
         /* Improve default legibility slightly across slides */
         .slide-container, .slide-container * { -webkit-font-smoothing: antialiased; }
@@ -76,8 +60,8 @@
             flex-wrap: wrap;
         }
         .slide-1 .logos img {
-            height: 68px; /* Larger, clearer logos */
-            max-width: 120px;
+            height: 80px; /* Larger, clearer logos */
+            max-width: 160px;
             object-fit: contain;
             background: rgba(255,255,255,0.9);
             border-radius: 6px;
@@ -110,8 +94,7 @@
             height: 100%;
             position: relative;
             z-index: 3;
-            width: 1280px;
-            height: 720px;
+            width: 100%;
         }
         .slide-1 .logos-bar {
             position: absolute;
@@ -882,31 +865,7 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Auto-fit each 16:9 slide to the current viewport using scale transform
-        const BASE_W = 1280, BASE_H = 720;
-        // Wrap slides so each occupies one viewport
-        const slides = Array.from(document.querySelectorAll('.slide-container'));
-        slides.forEach(slide => {
-            if (!slide.parentElement.classList.contains('slide-fit-wrapper')) {
-                const wrap = document.createElement('div');
-                wrap.className = 'slide-fit-wrapper';
-                slide.parentElement.insertBefore(wrap, slide);
-                wrap.appendChild(slide);
-            }
-            slide.style.transformOrigin = 'center center';
-        });
-        function applyScale() {
-            const vw = window.innerWidth || document.documentElement.clientWidth;
-            const vh = window.innerHeight || document.documentElement.clientHeight;
-            const scale = Math.min(vw / BASE_W, vh / BASE_H);
-            document.querySelectorAll('.slide-container').forEach(s => {
-                s.style.width = BASE_W + 'px';
-                s.style.height = BASE_H + 'px';
-                s.style.transform = `scale(${scale})`;
-            });
-        }
-        applyScale();
-        window.addEventListener('resize', applyScale);
+        // Initialize charts and interactive elements
         // Chart options
         const commonChartOptions = {
             responsive: true,
