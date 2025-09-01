@@ -1,8 +1,6 @@
-# My Study Slides
+# YOLO Ensemble for UAV-based Multispectral Defect Detection in Wind Turbine Components
 
-A lightweight, static slide deck for the talk:
-
-YOLO Ensemble for UAV-based Multispectral Defect Detection in Wind Turbine Components
+A lightweight, static slide deck for the talk.
 
 - Online slides: https://radiukpavlo.github.io/my-study-slides/
 
