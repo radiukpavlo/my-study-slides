@@ -15,14 +15,22 @@ The main deck is a single HTML file with handcrafted styles, icons, and a few in
 - Easy to edit: Change text, images, and chart data in one file.
 - Optional Reveal.js demo: A minimal ESM setup for slide navigation and notes.
 
-## Project Structure
-- `index.html`: Main slide deck used by GitHub Pages.
-- `slides_icons/`: Logo and badge images used in the deck.
-- `slides_raw_html/index_2.html`: Earlier iteration of the custom static deck.
-- `slides_raw_html/index_1.html`: Minimal Reveal.js example that uses `main.js`.
-- `slides_raw_html/raw_html_*.txt`: Saved HTML snippets/scratch content.
-- `main.js`: Initializes Reveal.js (used only with `slides_raw_html/index_1.html`).
-- `package.json`: Project metadata; includes `reveal.js` and a dev server script.
+## Files & Directories
+- `index.html`: Primary slide deck used for GitHub Pages. Self-contained custom HTML/CSS with Tailwind (CDN), Font Awesome (CDN), and embedded Chart.js charts. The title slide shows organization logos from `logos/`. Adjust the logo size via the CSS variable `--logo-height` in `:root`.
+- `main.js`: ESM entry that initializes Reveal.js. Used only by the demo in `slides_raw_html/index_1.html`.
+- `slides_raw_html/`: Sandbox/alternatives for the deck.
+  - `slides_raw_html/index_1.html`: Minimal Reveal.js example that imports `main.js`.
+  - `slides_raw_html/index_2.html`, `slides_raw_html/index_3.html`: Earlier iterations of the custom static deck layout.
+  - `slides_raw_html/raw_html_1.txt`, `slides_raw_html/raw_html_2.txt`: Saved HTML snippets/scratch content used while designing slides.
+- `images/`: Figures used across slides (e.g., workflow diagrams such as `yolo_ense_1_workflow.png`, example frames, etc.).
+- `logos/`: Title-bar logos and partner/venue badges displayed on the first slide.
+- `poster/`: Conference poster files (`IDAACS_2025_Poster.pdf` and source `IDAACS_2025_Poster.pptx`).
+- `IDAACS_2025_Presentation.pdf`: Exported PDF of the main slide deck for offline viewing/sharing.
+- `.vscode/settings.json`: Workspace setting to tweak the editing experience (e.g., disable HTML auto-closing tags).
+- `package.json`: Project metadata. Contains `reveal.js` dependency and a `start` script (`http-server -p 8000 .`).
+- `package-lock.json`: Lockfile for reproducible installs.
+- `node_modules/`: Local dependencies (not required for `index.html`, only for the Reveal.js demo).
+- `temp_tail.txt`: Temporary/scratch content captured during deck assembly. Safe to remove.
 
 ## Quick Start
 You can view the deck in two ways.
@@ -41,7 +49,7 @@ You can view the deck in two ways.
 
 ## Editing Content
 - Text and layout: Edit sections directly in `index.html`.
-- Logos on the title slide: Replace images in `slides_icons/` and update the `<img>` tags in `index.html`.
+- Logos on the title slide: Replace images in `logos/` and update the `<img>` tags in `index.html` if names change.
 - Logo size: Adjust the CSS variable in `index.html`:
   - In `:root`, change `--logo-height` (e.g., `40px`, `60px`, `80px`).
 - Charts: Update datasets inside the `<script>` at the bottom of `index.html` (look for `new Chart(...)`).
@@ -77,3 +85,4 @@ ISC - see `package.json` for details. Images/logos may be subject to their respe
 - Font Awesome - https://fontawesome.com/
 - Chart.js - https://www.chartjs.org/
 - Reveal.js - https://revealjs.com/
+
