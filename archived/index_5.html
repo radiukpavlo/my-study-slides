@@ -259,36 +259,17 @@
         .slide-2 .metric-value { font-size: 22px; font-weight: 700; color: #10397b; }
         .slide-2 .metric-label { font-size: 12px; color: #555; }
 
-        /* Slide 3: Introduction (OLD VERSION) */
-        /* .slide-3 .content { display: flex; gap: 20px; align-items: center; padding: 15px 60px 15px; }
-        .slide-3 .left-column, .slide-3 .right-column { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-        .slide-3 .consolidated-box { background-color: white; border-radius: 10px; padding: 18px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; border-left: 6px solid #10397b; display: flex; flex-direction: column; gap: 10px; }
-        .slide-3 .section-title { font-size: 18px; font-weight: 600; color: #10397b; margin-bottom: 6px; display: flex; align-items: center; border-bottom: 2px solid rgba(74, 159, 255, 0.2); padding-bottom: 6px; }
-        .slide-3 .section-title i { margin-right: 10px; color: #4a9fff; font-size: 20px; width: 26px; text-align: center; }
-        .slide-3 .section-points { list-style-type: none; padding-left: 2px; }
-        .slide-3 .section-point { font-size: 14px; margin-bottom: 5px; display: flex; align-items: flex-start; line-height: 1.35; }
+        /* Slide 3: Introduction (THOROUGHLY MODIFIED) */
+        .slide-3 .content { display: flex; gap: 30px; align-items: center; }
+        .slide-3 .left-column, .slide-3 .right-column { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .slide-3 .consolidated-box { flex-grow: 1; background-color: white; border-radius: 10px; padding: 25px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; border-left: 8px solid #10397b; display: flex; flex-direction: column; justify-content: space-around; }
+        .slide-3 .section-title { font-size: 20px; font-weight: 600; color: #10397b; margin-bottom: 8px; display: flex; align-items: center; border-bottom: 2px solid rgba(74, 159, 255, 0.2); padding-bottom: 8px; }
+        .slide-3 .section-title i { margin-right: 12px; color: #4a9fff; font-size: 22px; width: 30px; text-align: center; }
+        .slide-3 .section-points { list-style-type: none; padding-left: 5px; }
+        .slide-3 .section-point { font-size: 16px; margin-bottom: 6px; display: flex; align-items: flex-start; line-height: 1.4; }
         .slide-3 .section-point:last-child { margin-bottom: 0; }
-        .slide-3 .section-point i { color: #4a9fff; margin-right: 8px; font-size: 12px; margin-top: 4px; flex-shrink: 0; }
-        .slide-3 .image-container { width: 100%; height: 520px; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
-        .slide-3 .image-container img { width: 100%; height: 100%; object-fit: contain; }
-        .slide-3 .image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(16, 57, 123, 0.1), rgba(16, 57, 123, 0.3)); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
-        .slide-3 .image-caption { color: white; font-size: 16px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .slide-3 .image-subcaption { color: rgba(255,255,255,0.9); font-size: 13px; margin-top: 4px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
-        */
-        /* Slide 3: Introduction */
-        .slide-3 .content { display: flex; flex-direction: row; gap: 10px; }
-        .slide-3 .left-column, .slide-3 .right-column { flex: 1; display: flex; flex-direction: column; }
-        .slide-3 .right-column { justify-content: center; }
-        .slide-3 .left-column { gap: 10px; }
-        .slide-3 .challenge-box { background-color: white; border-radius: 10px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; transition: transform 0.3s ease; }
-        .slide-3 .challenge-box:hover { transform: translateY(-5px); }
-        .slide-3 .challenge-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
-        .slide-3 .challenge-title { font-size: 22px; font-weight: 600; color: #10397b; margin-bottom: 15px; display: flex; align-items: center; }
-        .slide-3 .challenge-title i { margin-right: 10px; color: #4a9fff; font-size: 24px; }
-        .slide-3 .challenge-points { list-style-type: none; }
-        .slide-3 .challenge-point { font-size: 18px; margin-bottom: 12px; display: flex; align-items: flex-start; }
-        .slide-3 .challenge-point i { color: #4a9fff; margin-right: 10px; font-size: 16px; margin-top: 4px; flex-shrink: 0; }
-        .slide-3 .image-container { width: 100%; height: 100%; min-height: 280px; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
+        .slide-3 .section-point i { color: #4a9fff; margin-right: 10px; font-size: 14px; margin-top: 5px; flex-shrink: 0; }
+        .slide-3 .image-container { width: 100%; height: 100%; max-height: 580px; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
         .slide-3 .image-container img { width: 100%; height: 100%; object-fit: cover; }
         .slide-3 .image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(16, 57, 123, 0.1), rgba(16, 57, 123, 0.3)); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
         .slide-3 .image-caption { color: white; font-size: 18px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
@@ -507,33 +488,33 @@
         .slide-11 .improvement-badge { position: absolute; top: 10px; right: 10px; background-color: rgba(46, 125, 50, 0.9); color: white; font-weight: 600; padding: 4px 8px; border-radius: 4px; font-size: 12px; z-index: 2; }
 
         /* Slide 12: Conclusion and Future Work (THOROUGHLY MODIFIED) */
-        .slide-12 .content { padding: 16px 60px 18px; }
-        .slide-12 .main-container { display: flex; gap: 16px; flex-grow: 1; margin-bottom: 14px; }
+        .slide-12 .content { padding: 20px 70px 25px; }
+        .slide-12 .main-container { display: flex; gap: 20px; flex-grow: 1; margin-bottom: 20px; }
         .slide-12 .left-column { flex: 1.2; display: flex; }
-        .slide-12 .right-column { flex: 1; display: flex; flex-direction: column; gap: 12px; }
-        .slide-12 .conclusion-box { background-color: white; border-radius: 10px; padding: 14px; box-shadow: 0 10px 20px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; transition: all 0.3s ease-in-out; display: flex; flex-direction: column; }
-        .slide-12 .conclusion-box:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(16, 57, 123, 0.12); }
-        .slide-12 .conclusion-box::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
-        .slide-12 .box-header { display: flex; align-items: center; margin-bottom: 10px; position: relative; z-index: 1; flex-shrink: 0; }
-        .slide-12 .box-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 12px; flex-shrink: 0; }
-        .slide-12 .box-icon i { font-size: 16px; color: white; }
-        .slide-12 .box-title { font-size: 18px; font-weight: 600; color: #10397b; }
-        .slide-12 .key-points { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1; flex-shrink: 0; }
-        .slide-12 .point-item { display: flex; align-items: flex-start; background-color: rgba(74, 159, 255, 0.05); border-radius: 8px; padding: 8px; }
-        .slide-12 .point-icon { color: #4a9fff; margin-right: 8px; font-size: 14px; margin-top: 3px; flex-shrink: 0; }
-        .slide-12 .point-text { font-size: 14px; line-height: 1.35; }
-        .slide-12 .future-list { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1; }
-        .slide-12 .future-item { background-color: rgba(74, 159, 255, 0.05); border-radius: 8px; padding: 10px; display: flex; align-items: center; }
-        .slide-12 .future-icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 10px; flex-shrink: 0; }
-        .slide-12 .future-icon i { font-size: 14px; color: white; }
-        .slide-12 .future-text { font-size: 13px; line-height: 1.35; }
-        .slide-12 .metrics-container { display: flex; justify-content: space-between; gap: 12px; }
-        .slide-12 .metric-card { flex: 1; background: linear-gradient(135deg, #10397b, #4a9fff); color: white; border-radius: 10px; padding: 10px; text-align: center; box-shadow: 0 8px 18px rgba(16, 57, 123, 0.15); transition: all 0.3s ease-in-out; position: relative; overflow: hidden; }
-        .slide-12 .metric-card:hover { transform: translateY(-3px); }
-        .slide-12 .metric-card::before { content: ''; position: absolute; top: 0; right: 0; width: 70px; height: 70px; background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%); border-radius: 0 0 0 100%; }
-        .slide-12 .metric-value { font-size: 28px; font-weight: 700; margin-bottom: 2px; position: relative; z-index: 1; }
-        .slide-12 .metric-label { font-size: 13px; opacity: 0.9; position: relative; z-index: 1; }
-        .slide-12 .chart-container { position: relative; flex-grow: 1; margin-top: 10px; z-index: 1; min-height: 180px; }
+        .slide-12 .right-column { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+        .slide-12 .conclusion-box { background-color: white; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; transition: all 0.3s ease-in-out; display: flex; flex-direction: column; }
+        .slide-12 .conclusion-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(16, 57, 123, 0.12); }
+        .slide-12 .conclusion-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
+        .slide-12 .box-header { display: flex; align-items: center; margin-bottom: 15px; position: relative; z-index: 1; flex-shrink: 0; }
+        .slide-12 .box-icon { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
+        .slide-12 .box-icon i { font-size: 20px; color: white; }
+        .slide-12 .box-title { font-size: 22px; font-weight: 600; color: #10397b; }
+        .slide-12 .key-points { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; flex-shrink: 0; }
+        .slide-12 .point-item { display: flex; align-items: flex-start; background-color: rgba(74, 159, 255, 0.05); border-radius: 8px; padding: 10px; }
+        .slide-12 .point-icon { color: #4a9fff; margin-right: 10px; font-size: 16px; margin-top: 4px; flex-shrink: 0; }
+        .slide-12 .point-text { font-size: 16px; line-height: 1.4; }
+        .slide-12 .future-list { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+        .slide-12 .future-item { background-color: rgba(74, 159, 255, 0.05); border-radius: 8px; padding: 12px; display: flex; align-items: center; }
+        .slide-12 .future-icon { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 12px; flex-shrink: 0; }
+        .slide-12 .future-icon i { font-size: 16px; color: white; }
+        .slide-12 .future-text { font-size: 15px; line-height: 1.4; }
+        .slide-12 .metrics-container { display: flex; justify-content: space-between; gap: 15px; }
+        .slide-12 .metric-card { flex: 1; background: linear-gradient(135deg, #10397b, #4a9fff); color: white; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 8px 20px rgba(16, 57, 123, 0.15); transition: all 0.3s ease-in-out; position: relative; overflow: hidden; }
+        .slide-12 .metric-card:hover { transform: translateY(-4px); }
+        .slide-12 .metric-card::before { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%); border-radius: 0 0 0 100%; }
+        .slide-12 .metric-value { font-size: 34px; font-weight: 700; margin-bottom: 2px; position: relative; z-index: 1; }
+        .slide-12 .metric-label { font-size: 15px; opacity: 0.9; position: relative; z-index: 1; }
+        .slide-12 .chart-container { position: relative; flex-grow: 1; margin-top: 15px; z-index: 1; min-height: 150px;}
 
         /* Styles for Printing to PDF */
         @media print {
@@ -634,8 +615,7 @@
         </div>
     </div>
 
-    <!-- 
-    Slide 3: Introduction (OLD VERSION)
+    <!-- Slide 3: Introduction -->
     <div class="slide-container slide-3 content-slide">
         <div class="header">
             <h1 class="title">Introduction</h1>
@@ -666,49 +646,6 @@
                             <li class="section-point"><i class="fas fa-chevron-right"></i><span>Robust algorithms are needed to analyze multispectral data accurately.</span></li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div class="right-column">
-                <div class="image-container">
-                    <img src="https://sfile.chatglm.cn/images-ppt/45d0f7c494eb.jpg" alt="Wind turbine blade thermal inspection comparison">
-                    <div class="image-overlay">
-                        <div class="image-caption">Thermal Imaging Reveals Hidden Defects</div>
-                        <div class="image-subcaption">RGB vs. Thermal comparison of wind turbine blade inspection</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
-    
-    <!-- Slide 3: Introduction --> 
-    <div class="slide-container slide-3 content-slide">
-        <div class="header"><h1 class="title">Introduction</h1></div>
-        <div class="content">
-            <div class="left-column">
-                <div class="challenge-box">
-                    <div class="challenge-title"><i class="fas fa-exclamation-triangle"></i>Inspection Challenges</div>
-                    <ul class="challenge-points">
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Minor defects → <span class="highlight">economic & safety risks</span></span></li>
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Timely maintenance → <span class="highlight">efficiency & longevity</span></span></li>
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Complex geometries & remote locations</span></li>
-                    </ul>
-                </div>
-                <div class="challenge-box">
-                    <div class="challenge-title"><i class="fas fa-helicopter"></i>UAV-Based Inspection</div>
-                    <ul class="challenge-points">
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span><span class="highlight">High-resolution optical sensors</span> & thermal cameras</span></li>
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Efficient data collection from multiple angles</span></li>
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Captures defects invisible in RGB images</span></li>
-                    </ul>
-                </div>
-                <div class="challenge-box">
-                    <div class="challenge-title"><i class="fas fa-microchip"></i>Data Processing</div>
-                    <ul class="challenge-points">
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Large data volumes → <span class="highlight">real-time processing</span></span></li>
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Environmental conditions affect quality</span></li>
-                        <li class="challenge-point"><i class="fas fa-chevron-right"></i><span>Robust algorithms for multispectral data</span></li>
-                    </ul>
                 </div>
             </div>
             <div class="right-column">
@@ -1041,18 +978,18 @@
                 data: {
                     labels: ['YOLOv8', 'Our Ensemble'],
                     datasets: [
-                        { label: 'mAP@.5', data: [0.91, 0.93], backgroundColor: 'rgba(16, 57, 123, 0.85)', barPercentage: 0.5 },
-                        { label: 'F1-Score', data: [0.88, 0.90], backgroundColor: 'rgba(74, 159, 255, 0.7)', barPercentage: 0.5 }
+                        { label: 'mAP@.5', data: [0.91, 0.93], backgroundColor: 'rgba(255, 255, 255, 0.7)', barPercentage: 0.5 },
+                        { label: 'F1-Score', data: [0.88, 0.90], backgroundColor: 'rgba(255, 255, 255, 0.4)', barPercentage: 0.5 }
                     ]
                 },
                 options: { 
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
-                        y: { beginAtZero: false, min: 0.85, max: 1.0, ticks: { color: '#10397b' }, grid: { color: 'rgba(16,57,123,0.15)' } },
-                        x: { ticks: { color: '#10397b', font: { size: 14 } }, grid: { display: false } }
+                        y: { beginAtZero: false, min: 0.85, max: 1.0, ticks: { color: 'white' }, grid: { color: 'rgba(255,255,255,0.2)' } },
+                        x: { ticks: { color: 'white', font: { size: 14 } }, grid: { display: false } }
                     },
-                    plugins: { legend: { position: 'top', labels: { color: '#10397b', font: { size: 14 } } } }
+                    plugins: { legend: { position: 'top', labels: { color: 'white', font: { size: 14 } } } }
                 }
             });
         }
@@ -1060,5 +997,3 @@
     </script>
 </body>
 </html>
-
-
