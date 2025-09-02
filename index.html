@@ -259,20 +259,21 @@
         .slide-2 .metric-value { font-size: 22px; font-weight: 700; color: #10397b; }
         .slide-2 .metric-label { font-size: 12px; color: #555; }
 
-        /* Slide 3: Introduction */
-        .slide-3 .content { display: flex; gap: 20px; }
+        /* Slide 3: Introduction (MODIFIED FOR VISIBILITY) */
+        .slide-3 .content { display: flex; gap: 25px; align-items: center; }
         .slide-3 .left-column, .slide-3 .right-column { flex: 1; display: flex; flex-direction: column; }
-        .slide-3 .right-column { justify-content: center; }
-        .slide-3 .left-column { gap: 15px; justify-content: center; }
-        .slide-3 .challenge-box { background-color: white; border-radius: 10px; padding: 15px 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; transition: all 0.3s ease-in-out; }
-        .slide-3 .challenge-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(16, 57, 123, 0.12); }
-        .slide-3 .challenge-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
-        .slide-3 .challenge-title { font-size: 22px; font-weight: 600; color: #10397b; margin-bottom: 10px; display: flex; align-items: center; }
-        .slide-3 .challenge-title i { margin-right: 10px; color: #4a9fff; font-size: 24px; }
+        .slide-3 .right-column { justify-content: center; height: 100%; }
+        .slide-3 .left-column { gap: 12px; justify-content: center; }
+        .slide-3 .challenge-box { background-color: white; border-radius: 10px; padding: 12px 18px; box-shadow: 0 8px 20px rgba(16, 57, 123, 0.07); position: relative; overflow: hidden; transition: all 0.3s ease-in-out; }
+        .slide-3 .challenge-box:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(16, 57, 123, 0.1); }
+        .slide-3 .challenge-box::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
+        .slide-3 .challenge-title { font-size: 20px; font-weight: 600; color: #10397b; margin-bottom: 8px; display: flex; align-items: center; }
+        .slide-3 .challenge-title i { margin-right: 10px; color: #4a9fff; font-size: 22px; }
         .slide-3 .challenge-points { list-style-type: none; }
-        .slide-3 .challenge-point { font-size: 17px; margin-bottom: 8px; display: flex; align-items: flex-start; }
-        .slide-3 .challenge-point i { color: #4a9fff; margin-right: 10px; font-size: 16px; margin-top: 4px; flex-shrink: 0; }
-        .slide-3 .image-container { width: 100%; height: 100%; min-height: 280px; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
+        .slide-3 .challenge-point { font-size: 16px; margin-bottom: 6px; display: flex; align-items: flex-start; line-height: 1.4; }
+        .slide-3 .challenge-point:last-child { margin-bottom: 0; }
+        .slide-3 .challenge-point i { color: #4a9fff; margin-right: 8px; font-size: 14px; margin-top: 5px; flex-shrink: 0; }
+        .slide-3 .image-container { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 15px 30px rgba(16, 57, 123, 0.15); position: relative; }
         .slide-3 .image-container img { width: 100%; height: 100%; object-fit: cover; }
         .slide-3 .image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(16, 57, 123, 0.1), rgba(16, 57, 123, 0.3)); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
         .slide-3 .image-caption { color: white; font-size: 18px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
@@ -433,6 +434,7 @@
         .slide-9 .decoration { position: absolute; bottom: -30px; right: -30px; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, rgba(74, 159, 255, 0.1) 0%, rgba(16, 57, 123, 0.05) 100%); z-index: 0; }
 
         /* Slide 10: Results - State-of-the-Art Comparison */
+        .slide-10 .content { padding: 20px 70px 25px; }
         .slide-10 .main-container { display: flex; gap: 15px; flex-grow: 1; margin-bottom: 15px; }
         .slide-10 .table-section, .slide-10 .chart-section, .slide-10 .finding-box { background-color: white; border-radius: 12px; padding: 15px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; }
         .slide-10 .table-section::before, .slide-10 .chart-section::before, .slide-10 .finding-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
@@ -489,33 +491,34 @@
         .slide-11 .finding-text { font-size: 14px; line-height: 1.4; }
         .slide-11 .improvement-badge { position: absolute; top: 10px; right: 10px; background-color: rgba(46, 125, 50, 0.9); color: white; font-weight: 600; padding: 4px 8px; border-radius: 4px; font-size: 12px; z-index: 2; }
 
-        /* Slide 12: Conclusion and Future Work */
+        /* Slide 12: Conclusion and Future Work (MODIFIED FOR VISIBILITY) */
+        .slide-12 .content { padding: 15px 70px 20px; }
         .slide-12 .main-container { display: flex; gap: 15px; flex-grow: 1; margin-bottom: 15px;}
         .slide-12 .left-column, .slide-12 .right-column { flex: 1; display: flex; flex-direction: column; gap: 15px; }
-        .slide-12 .conclusion-box { background-color: white; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; flex-grow: 1; transition: all 0.3s ease-in-out; }
+        .slide-12 .conclusion-box { background-color: white; border-radius: 12px; padding: 15px; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.08); position: relative; overflow: hidden; flex-grow: 1; transition: all 0.3s ease-in-out; display: flex; flex-direction: column; }
         .slide-12 .conclusion-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(16, 57, 123, 0.12); }
         .slide-12 .conclusion-box::before { content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%; background: linear-gradient(to bottom, #10397b, #4a9fff); }
-        .slide-12 .box-header { display: flex; align-items: center; margin-bottom: 15px; position: relative; z-index: 1; }
-        .slide-12 .box-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
-        .slide-12 .box-icon i { font-size: 24px; color: white; }
-        .slide-12 .box-title { font-size: 24px; font-weight: 600; color: #10397b; }
-        .slide-12 .key-points { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
-        .slide-12 .point-item { display: flex; align-items: flex-start; background-color: rgba(74, 159, 255, 0.05); border-radius: 10px; padding: 10px 12px; }
-        .slide-12 .point-icon { color: #4a9fff; margin-right: 12px; font-size: 18px; margin-top: 2px; flex-shrink: 0; }
-        .slide-12 .point-text { font-size: 16px; line-height: 1.4; }
-        .slide-12 .future-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; position: relative; z-index: 1; }
-        .slide-12 .future-item { background-color: rgba(74, 159, 255, 0.05); border-radius: 10px; padding: 15px; display: flex; align-items: flex-start; }
-        .slide-12 .future-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 12px; flex-shrink: 0; }
-        .slide-12 .future-icon i { font-size: 18px; color: white; }
-        .slide-12 .future-text { font-size: 15px; line-height: 1.4; }
+        .slide-12 .box-header { display: flex; align-items: center; margin-bottom: 12px; position: relative; z-index: 1; }
+        .slide-12 .box-icon { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
+        .slide-12 .box-icon i { font-size: 20px; color: white; }
+        .slide-12 .box-title { font-size: 22px; font-weight: 600; color: #10397b; }
+        .slide-12 .key-points { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1; }
+        .slide-12 .point-item { display: flex; align-items: flex-start; background-color: rgba(74, 159, 255, 0.05); border-radius: 8px; padding: 8px 10px; }
+        .slide-12 .point-icon { color: #4a9fff; margin-right: 10px; font-size: 16px; margin-top: 3px; flex-shrink: 0; }
+        .slide-12 .point-text { font-size: 15px; line-height: 1.4; }
+        .slide-12 .future-grid { display: grid; grid-template-rows: repeat(3, 1fr); gap: 10px; position: relative; z-index: 1; }
+        .slide-12 .future-item { background-color: rgba(74, 159, 255, 0.05); border-radius: 8px; padding: 10px; display: flex; align-items: center; }
+        .slide-12 .future-icon { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #10397b, #4a9fff); border-radius: 50%; margin-right: 12px; flex-shrink: 0; }
+        .slide-12 .future-icon i { font-size: 16px; color: white; }
+        .slide-12 .future-text { font-size: 14px; line-height: 1.4; }
         .slide-12 .metrics-container { display: flex; justify-content: space-between; gap: 15px; }
-        .slide-12 .metric-card { flex: 1; background: linear-gradient(135deg, #10397b, #4a9fff); color: white; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 10px 25px rgba(16, 57, 123, 0.15); transition: all 0.3s ease-in-out; position: relative; overflow: hidden; }
-        .slide-12 .metric-card:hover { transform: translateY(-5px); }
-        .slide-12 .metric-card::before { content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%); border-radius: 0 0 0 100%; }
-        .slide-12 .metric-value { font-size: 36px; font-weight: 700; margin-bottom: 5px; position: relative; z-index: 1; }
-        .slide-12 .metric-label { font-size: 16px; opacity: 0.9; position: relative; z-index: 1; }
+        .slide-12 .metric-card { flex: 1; background: linear-gradient(135deg, #10397b, #4a9fff); color: white; border-radius: 12px; padding: 10px; text-align: center; box-shadow: 0 8px 20px rgba(16, 57, 123, 0.15); transition: all 0.3s ease-in-out; position: relative; overflow: hidden; }
+        .slide-12 .metric-card:hover { transform: translateY(-4px); }
+        .slide-12 .metric-card::before { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%); border-radius: 0 0 0 100%; }
+        .slide-12 .metric-value { font-size: 32px; font-weight: 700; margin-bottom: 2px; position: relative; z-index: 1; }
+        .slide-12 .metric-label { font-size: 14px; opacity: 0.9; position: relative; z-index: 1; }
         .slide-12 .decoration { position: absolute; bottom: -30px; right: -30px; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, rgba(74, 159, 255, 0.1) 0%, rgba(16, 57, 123, 0.05) 100%); z-index: 0; }
-        .slide-12 .chart-container { position: relative; height: 160px; margin-top: 10px; z-index: 1; }
+        .slide-12 .chart-container { position: relative; flex-grow: 1; margin-top: 10px; z-index: 1; min-height: 150px;}
 
         /* Styles for Printing to PDF */
         @media print {
@@ -884,7 +887,7 @@
                 </div>
                 <div class="right-column">
                     <div class="conclusion-box">
-                        <div class="box-header"><div class="box-icon"><i class="fas fa-lightbulb"></i></div><div class="box-title">Advantages of Our Approach</div></div>
+                        <div class="box-header"><div class="box-icon"><i class="fas fa-lightbulb"></i></div><div class="box-title">Advantages</div></div>
                         <div class="key-points">
                             <div class="point-item"><i class="fas fa-layer-group point-icon"></i><div class="point-text"><span class="highlight">Multi-modal synergy</span> provides a more comprehensive diagnostic tool than single-spectrum systems.</div></div>
                             <div class="point-item"><i class="fas fa-balance-scale point-icon"></i><div class="point-text">Combines the <span class="highlight">speed</span> of a single-stage detector with the <span class="highlight">precision</span> of a specialist model.</div></div>
@@ -894,9 +897,9 @@
                     <div class="conclusion-box">
                         <div class="box-header"><div class="box-icon"><i class="fas fa-rocket"></i></div><div class="box-title">Future Research</div></div>
                         <div class="future-grid">
-                            <div class="future-item"><div class="future-icon"><i class="fas fa-microchip"></i></div><div class="future-text"><span class="highlight">Edge Deployment:</span> Optimizing the ensemble for real-time deployment on computationally constrained UAVs.</div></div>
-                            <div class="future-item"><div class="future-icon"><i class="fas fa-object-group"></i></div><div class="future-text"><span class="highlight">Robust Fusion:</span> Developing more advanced sensor fusion algorithms to mitigate noise and misregistration.</div></div>
-                            <div class="future-item"><div class="future-icon"><i class="fas fa-satellite"></i></div><div class="future-text"><span class="highlight">New Modalities:</span> Expanding the approach to incorporate additional data sources, such as hyperspectral imaging.</div></div>
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-microchip"></i></div><div class="future-text"><span class="highlight">Edge Deployment:</span> Optimizing for real-time deployment on UAVs.</div></div>
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-object-group"></i></div><div class="future-text"><span class="highlight">Robust Fusion:</span> Developing algorithms to mitigate noise and misregistration.</div></div>
+                            <div class="future-item"><div class="future-icon"><i class="fas fa-satellite"></i></div><div class="future-text"><span class="highlight">New Modalities:</span> Integrating additional data sources like hyperspectral imaging.</div></div>
                         </div><div class="decoration"></div>
                     </div>
                 </div>
